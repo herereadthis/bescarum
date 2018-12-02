@@ -1,49 +1,166 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <title>A/B Testing</title>
+    <meta name="author" content="James Ha">
 
-		<title>reveal.js</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="custom/css/foo.css">
+    <link rel="stylesheet" href="css/theme/white.css" id="theme">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section
+                data-transition="fade-in">
+            <h1>A/B Testing</h1>
+            <ul>
+                <li class="fragment">Controlled experiments to determine a causal relationship between changes to an
+                    application and their influence on observable behavior.
+                </li>
+            </ul>
+            <aside class="notes">
+                <p>These are my notes</p>
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Kinds of A/B Tests</h2>
+            <ul>
+                <li class="fragment">Split Tests, a.k.a. <strong>Hypothesis Testing</strong></li>
+                <li class="fragment"><strong>Multivariate Tests</strong>
+                    <ul>
+                        <li><em>Which really aren't A/B Tests, but get grouped in with them anyway</em></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Yeah, but why?</h2>
+            <ul>
+                <li>Improves User Experience</li>
+                <li>Accelerates Innovation</li>
+                <li>CASH MONEY $$ SYNERGY ROI BLOCKCHAIN</li>
+            </ul>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Concerns in A/B Tests</h2>
+            <ul>
+                <li class="fragment">How can I measure and analyze my test?</li>
+                <li class="fragment">How big does my test need to be?</li>
+                <li class="fragment">What can I test?</li>
+                <li class="fragment">What counts as a test?</li>
+                <li class="fragment">What are "statistics?"</li>
+                <li class="fragment">What is "probability?"</li>
+            </ul>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Presentation Overview</h2>
+            <ol>
+                <li>Define Probability and Statistics</li>
+                <li>Bayesian Statistics</li>
+                <li>Frequentist Statistics</li>
+                <li>Sampling Sizes</li>
+                <li>Power Analysis</li>
+                <li>Multivariate Testing</li>
+                <li>Weaknesses</li>
+            </ol>
+        </section>
+        <section
+            data-transition="fade-in">
+            <h1>1. Define Probability & Statistics</h1>
+            <video data-autoplay loop>
+                <source data-src="custom/media/adventure-time.mp4" type="video/mp4" />
+            </video>
+        </section>
+        <section
+                data-background-video="custom/media/adventure-time.mp4"
+                data-background-video-loop="true"
+                data-transition="fade-in">
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Probability</h2>
+            <ul>
+                <li>What is Probability (<em>P</em>)? A measure of the the likelihood an event will occur.</em></li>
+                <li>\(p=0\) - the event will not occur</li>
+                <li>\(p=1\) - the event will occur</li>
+            </ul>
+            <ul>
+                <li class="fragment">Bayesian: probability is deduced from prior knowledge</li>
+                <li class="fragment">Frequentist: probability obtained from experimentation</li>
+            </ul>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Statistics</h2>
+            <ul>
+                <li>What is Statistic? Information that can be computed from data</em></li>
+            </ul>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h1>Schools of Thought</h1>
+            <ul>
+                <li class="fragment">Bayesian: probability is deduced from prior knowledge</li>
+                <li class="fragment">Frequentist: probability obtained from experimentation</li>
+            </ul>
+        </section>
+    </div>
+</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        autoPlayMedia: null,
+//        center: true,
+//        width: 1920,
+//        height: 1080,
+//        margin: 0,
+        math: {
+            // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'
+        },
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/math/math.js', async: true },
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
 </html>

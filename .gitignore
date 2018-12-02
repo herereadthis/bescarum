@@ -11,4 +11,6 @@ node_modules/
 package-lock.json
 .sass-cache
 css/reveal.min.css
+css/reveal.css
+custom/css/foo.css
 js/reveal.min.js

@@ -39,6 +39,10 @@ module.exports = function(grunt) {
 				src: 'css/reveal.scss',
 				dest: 'css/reveal.css'
 			},
+            custom: {
+                src: 'custom/css/foo.scss',
+                dest: 'custom/css/foo.css'
+            },
 			themes: {
 				expand: true,
 				cwd: 'css/theme/source',
@@ -59,7 +63,7 @@ module.exports = function(grunt) {
 				compatibility: 'ie9'
 			},
 			compress: {
-				src: 'css/reveal.css',
+				src: ['css/reveal.css', 'custom/css/foo.scss'],
 				dest: 'css/reveal.min.css'
 			}
 		},
@@ -108,6 +112,7 @@ module.exports = function(grunt) {
 				src: [
 					'index.html',
 					'css/**',
+					'custom/**',
 					'js/**',
 					'lib/**',
 					'images/**',
@@ -133,9 +138,18 @@ module.exports = function(grunt) {
 				tasks: 'css-themes'
 			},
 			css: {
-				files: [ 'css/reveal.scss' ],
+				files: [
+					'css/reveal.scss',
+					'custom/foo.scss'
+				],
 				tasks: 'css-core'
 			},
+            custom: {
+                files: [
+                    'custom/css/foo.scss'
+                ],
+                tasks: 'css-custom'
+            },
 			html: {
 				files: root.map(path => path + '/*.html')
 			},
@@ -177,6 +191,9 @@ module.exports = function(grunt) {
 
 	// Core framework CSS
 	grunt.registerTask( 'css-core', [ 'sass:core', 'autoprefixer', 'cssmin' ] );
+
+    // Custom CSS
+    grunt.registerTask( 'css-custom', [ 'sass:custom', 'autoprefixer', 'cssmin' ] );
 
 	// All CSS
 	grunt.registerTask( 'css', [ 'sass', 'autoprefixer', 'cssmin' ] );
