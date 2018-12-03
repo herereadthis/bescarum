@@ -99,10 +99,10 @@
             </div>
         </section>
         <section
-            data-transition="fade-in">
+                data-transition="fade-in">
             <h1>1. Define Probability & Statistics</h1>
             <video data-autoplay loop>
-                <source data-src="custom/media/adventure-time.mp4" type="video/mp4" />
+                <source data-src="custom/media/adventure-time.mp4" type="video/mp4"/>
             </video>
         </section>
         <section
@@ -112,10 +112,18 @@
             <aside class="notes">
                 <ul>
                     <li>So I'm gonna try to cram a few semesters worth of statistics in the next hour</li>
-                    <li>I really do think it's important to understand why or how decisions in A/B testing are made.</li>
-                    <li>We could skip all this and just say, okay show me the formulas and I'll plug the A/B test data in</li>
-                    <li>I hope someday we can implement that for our applications, but it's worth noting that very critical business and technical decisions can be made over A/B testing analysis, we have to be sure of the reasoning</li>
-                    <li>I'm gonna throw a lot of math at you guys and it's not too important to memorize the formulas or proofs, but getting the general concepts and approaches to thinking about statistics is key.</li>
+                    <li>I really do think it's important to understand why or how decisions in A/B testing are made.
+                    </li>
+                    <li>We could skip all this and just say, okay show me the formulas and I'll plug the A/B test data
+                        in
+                    </li>
+                    <li>I hope someday we can implement that for our applications, but it's worth noting that very
+                        critical business and technical decisions can be made over A/B testing analysis, we have to be
+                        sure of the reasoning
+                    </li>
+                    <li>I'm gonna throw a lot of math at you guys and it's not too important to memorize the formulas or
+                        proofs, but getting the general concepts and approaches to thinking about statistics is key.
+                    </li>
                     <li>I know there might be a lot of questions, so I guess stop me if I totally lose you.</li>
                 </ul>
             </aside>
@@ -127,7 +135,9 @@
                 <li>If I flip a coin 10 times and it lands heads 7 times, is the coin rigged? \(P(X = 7)\)</li>
                 <li class="fragment">10% of contributors who debrief a session will create an annotation.
                     <ul>
-                        <li>A change is made to the application, and 8 of the next 50 debriefing contributors create annotations.</li>
+                        <li>A change is made to the application, and 8 of the next 50 debriefing contributors create
+                            annotations.
+                        </li>
                         <li>Did the change have an effect?</li>
                         <li>Is a sample size \(n=50\) good enough?</li>
                     </ul>
@@ -153,7 +163,9 @@
                     <li>Some people write the variance symbole as sigma squared, and some use capital V-A-R</li>
                     <li>Probability of an event is capital P</li>
                     <li>Events are always uppercase letters</li>
-                    <li>Lower case p is the probability function, or if you can express the probability of something as a formula</li>
+                    <li>Lower case p is the probability function, or if you can express the probability of something as
+                        a formula
+                    </li>
                 </ul>
             </aside>
             <div class="slide-footer-left">
@@ -165,7 +177,8 @@
             <h2>Conditional Probability</h2>
             <ul>
                 <li>
-                    <strong>Conditional Probability</strong> \(P(A|B)\) - the probability of event A occurring, given B has occurred
+                    <strong>Conditional Probability</strong> \(P(A|B)\) - the probability of event A occurring, given B
+                    has occurred
                     <span class="math-formula">\(P(A|B) = \frac{P(A \cap B)}{P(B)}\)</span>
                 </li>
                 <li>
@@ -202,9 +215,13 @@
             </div>
             <aside class="notes">
                 <ul>
-                    <li>Ahem, What is the probability that the second card drawn from a pack of cards is a diamond <span>\(P(D_2 \cap D_1)\)</span>, given that the first card drawn was a diamond P(D1)?</li>
+                    <li>Ahem, What is the probability that the second card drawn from a pack of cards is a diamond
+                        <span>\(P(D_2 \cap D_1)\)</span>, given that the first card drawn was a diamond P(D1)?
+                    </li>
                     <li>Probability of drawing the first diamond is 13/52</li>
-                    <li>Since there is 1 less card, the probability of drawing the second diamond given that a diamond has been drawn is 12/51</li>
+                    <li>Since there is 1 less card, the probability of drawing the second diamond given that a diamond
+                        has been drawn is 12/51
+                    </li>
                 </ul>
             </aside>
         </section>
@@ -215,7 +232,9 @@
             <ul>
                 <li><em>What is the probability that 2 babies from one mother die of SIDS?</em></li>
                 <li><em>Are these events dependent or independent?</em></li>
-                <li class="fragment">Given that a mother's first baby died of SIDS, what is the probability that her second baby will also die of SIDS? \(P(B_2|B_1)\)</li>
+                <li class="fragment">Given that a mother's first baby died of SIDS, what is the probability that her
+                    second baby will also die of SIDS? \(P(B_2|B_1)\)
+                </li>
             </ul>
             <ul class="fragment">
                 <li>Expert testimony from Dr. Roy Meadow: \(P(B)^2 = (1/8543)^2 \approx 1/73000000\)</li>
@@ -225,11 +244,15 @@
                 <p class="footer-text">1. Probability & Statistics</p>
             </div>
             <aside data-markdown class="notes">
-                * What is the probability that a mother's first 2 babies dies of SIDS? Are these events dependent or independent?
-                * Given that a mother's first baby died of SIDS, what is the probability that her second baby will also die of SIDS?
-                * Professor Sir Roy Meadow incorrectly concluded that these were 2 independent events, and famously said it was a "1 in 73 million" chance.
+                * What is the probability that a mother's first 2 babies dies of SIDS? Are these events dependent or
+                independent?
+                * Given that a mother's first baby died of SIDS, what is the probability that her second baby will also
+                die of SIDS?
+                * Professor Sir Roy Meadow incorrectly concluded that these were 2 independent events, and famously said
+                it was a "1 in 73 million" chance.
                 * This false statistic lead to her false conviction in November 1999.
-                * Probability and statistics got distorted - people understood "1 in 73 million" to be a measure of her innocence.
+                * Probability and statistics got distorted - people understood "1 in 73 million" to be a measure of her
+                innocence.
                 * Also the pathologist hid knowledge that one of the babies had a staph infection
                 * She was release on January 2003, but died in March 2007 from alcohol poisoning.
             </aside>
@@ -252,8 +275,10 @@
                 ## Discrete Random Variables
 
                 * **Random Variable** - variable with a value determined by a chance event.
-                * **A discrete sample space** *&Omega;* is a finite set of outcomes {*&omega;<sub>1</sub>, &omega;<sub>2</sub>...*}. The probability of an outcome *&omega;* is *P(&omega;)*.
-                * **Discrete Probability Distribution** - a distribution that can be represented by a table. For example, there are only 4 outcomes from flipping a coin 2 times.
+                * **A discrete sample space** *&Omega;* is a finite set of outcomes {*&omega;<sub>1</sub>,
+                &omega;<sub>2</sub>...*}. The probability of an outcome *&omega;* is *P(&omega;)*.
+                * **Discrete Probability Distribution** - a distribution that can be represented by a table. For
+                example, there are only 4 outcomes from flipping a coin 2 times.
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
@@ -302,10 +327,12 @@
             <div>
                 <h2>Discrete Functions</h2>
                 <ul>
-                    <li><strong>Probability Mass Function pmf</strong> - the function for a discrete random variable<br />
+                    <li><strong>Probability Mass Function pmf</strong> - the function for a discrete random
+                        variable<br/>
                         <span class="math-formula">$$p(a) = P(X = a)$$ $$0 \le p(a) \le 1$$</span>
                     </li>
-                    <li><strong>Cumulative Distribution Function cdf</strong> - the function that gives the total probabilities from \(\infty\) to \(a\)<br />
+                    <li><strong>Cumulative Distribution Function cdf</strong> - the function that gives the total
+                        probabilities from \(\infty\) to \(a\)<br/>
                         <span class="math-formula">$$F(a) = P(X \le a)$$</span>
                     </li>
                 </ul>
@@ -369,16 +396,32 @@
                 <h2>Discrete Mean &amp; Variance</h2>
                 <div>
                     <ul>
-                        <li><strong>Discrete Mean</strong> - the average of a discrete random variable \(X\) a.k.a. <strong>expected value</strong> of \(X\)
-                        <span class="math-formula">$$E(X) = \mu_{x} = \sum_{i=1}^n {x_{i} P(x_{i}) }$$</span>
+                        <li><strong>Discrete Mean</strong> - the average of a discrete random variable \(X\) a.k.a.
+                            <strong>expected value</strong> of \(X\)
+                            <span class="math-formula">$$E(X) = \mu_{x} = \sum_{i=1}^n {x_{i} P(x_{i}) }$$</span>
                         </li>
                     </ul>
                 </div>
                 <div class="fragment">
                     <ul>
-                        <li><strong>Discrete Variance</strong> - a measure of how much the probability mass is spread out around \(\mu\).
+                        <li><strong>Discrete Variance</strong> - a measure of how much the probability mass is spread
+                            out around \(\mu\).
                             <span class="math-formula">$$Var(X) = E((X- \mu )^{2}) = \sum_{i=1}^n p({x_{i})(x_{i}- \mu )^{2} }$$</span>
                         </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Discrete Standard Deviation</h2>
+                <div>
+                    <ul>
+                        <li><strong>Discrete Standard Deviation \(\sigma\)</strong> - a measure of the spread, expressed
+                            in the same units as the expected Value
+                            <span class="math-formula">$$\sigma = \sqrt{Var(X)}$$</span>
+                            <span class="math-formula fragment">$$Var(X) = \sigma^2$$</span></li>
                     </ul>
                 </div>
             </div>
@@ -389,6 +432,72 @@
                 <ul>
                     <li>Expected Value is written as capital E of x</li>
                     <li>Mean is usually written with lowercase Greek &mu;</li>
+                </ul>
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div data-markdown>
+                ## Bernoulli Trial
+
+                * An experiment that only has two possible results - *success* and *failure* - is a **Bernoulli Trial** if:
+                  * The results are mutually exclusive,
+                  * The probability of these two results do not change each time the experiment is done
+            </div>
+            <span class="math-formula">$$X =\begin{cases}1 & success\\0 & failure\end{cases}$$</span>
+            <div class="slide-footer-left">
+                <p class="footer-text">1. Probability & Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Bernoulli Distribution</h2>
+                <ul>
+                    <li>Success:<br />
+                        <span class="math-formula">\(P(X = 1) = p\)</span>
+                    </li>
+                    <li>Failure:<br />
+                        <span class="math-formula">\(P(X = 0) = 1-p\)</span>
+                    </li>
+                    <li>Mean:<br />
+                        <span class="math-formula">\(\mu = p\)</span>
+                    </li>
+                    <li>Expected Value:<br />
+                        <span class="math-formula">\(E(X) = 0(1-p) + 1(p) = p\)</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">1. Probability & Statistics</p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>If we say a success is rolling a die for 3 or higher, then the probability of success is 0.67, and the probability of failure is 0.33.</li>
+                </ul>
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Continuous Random Variables</h2>
+
+                <ul>
+                    <li>A random variable \(X\) is <strong>continuous</strong> if there is a function \(f(x)\) such that for any \(c \le d\), the probability density function (pdf) is
+                        <span class="math-formula">$$P(c \leq d) = \int_c^d f(x)dx$$</span>
+                        <span class="math-formula">$${P(-\infty \leq X \leq \infty) = \int_{-\infty}^\infty f(x) dx = 1}$$</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">1. Probability & Statistics</p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>So note that when dealing with discrete distributions we are looking for a probability mass function.</li>
+                    <li>For continuous distribution, we are looking for a probability density function.</li>
+                    <li>Mass is the integral of density</li>
+                    <li>If you take the integral of the pdf at all vales, then the area of all probability is 1</li>
                 </ul>
             </aside>
         </section>
@@ -431,20 +540,35 @@
             <h1>Bayesian vs. Frequentist</h1>
             <p><em>Statistics require making lots of inferences</em></p>
             <ul>
-                <li class="fragment"><strong>Bayesian</strong>: probability is subjective and deduced from prior knowledge</li>
-                <li class="fragment"><strong>Frequentist</strong>: probability is objective and obtained through experimentation</li>
+                <li class="fragment"><strong>Bayesian</strong>: probability is subjective and deduced from prior
+                    knowledge
+                </li>
+                <li class="fragment"><strong>Frequentist</strong>: probability is objective and obtained through
+                    experimentation
+                </li>
             </ul>
             <aside class="notes">
                 <ul>
                     <li>So honestly, when you ask "what is Probability?" you can't even get a unified answer.</li>
-                    <li>The reason is statistics require dealing a lot of unknowns. The process by which we we obtain knowledge from a unknown information has two main approaches</li>
-                    <li>I'm going to give you a very simplified definition. If a real statistician were sitting here, that person would cringe a little for trying compress an entire discipline into a few sentences.</li>
-                    <li>The first school of thought is Bayesian Statistics, which was popular until the 20th century</li>
+                    <li>The reason is statistics require dealing a lot of unknowns. The process by which we we obtain
+                        knowledge from a unknown information has two main approaches
+                    </li>
+                    <li>I'm going to give you a very simplified definition. If a real statistician were sitting here,
+                        that person would cringe a little for trying compress an entire discipline into a few sentences.
+                    </li>
+                    <li>The first school of thought is Bayesian Statistics, which was popular until the 20th century
+                    </li>
                     <li>Bayesian: probability is subjective and deduced from prior knowledge</li>
-                    <li>The second school of thought is Frequentist Statistics, which is the predominant approach to statistics since the 20th century.</li>
+                    <li>The second school of thought is Frequentist Statistics, which is the predominant approach to
+                        statistics since the 20th century.
+                    </li>
                     <li>Frequentist: probability is objective obtained from experimentation</li>
-                    <li>So the funny thing is, in this 21st century, Bayesian inference is making a huge comeback with regards to machine learning and data analysis</li>
-                    <li>The main point to remember is neither one is inherently wrong or superior, it's just that the two have different goals when computing data.</li>
+                    <li>So the funny thing is, in this 21st century, Bayesian inference is making a huge comeback with
+                        regards to machine learning and data analysis
+                    </li>
+                    <li>The main point to remember is neither one is inherently wrong or superior, it's just that the
+                        two have different goals when computing data.
+                    </li>
                 </ul>
             </aside>
         </section>
@@ -498,7 +622,7 @@
         dependencies: [
             {src: 'plugin/markdown/marked.js'},
             {src: 'plugin/markdown/markdown.js'},
-            {src: 'plugin/math/math.js', async: true },
+            {src: 'plugin/math/math.js', async: true},
             {src: 'plugin/notes/notes.js', async: true},
             {
                 src: 'plugin/highlight/highlight.js', async: true, callback: function () {
