@@ -13,4 +13,5 @@ package-lock.json
 css/reveal.min.css
 css/reveal.css
 custom/css/foo.css
+custom/css/foo.min.css
 js/reveal.min.js

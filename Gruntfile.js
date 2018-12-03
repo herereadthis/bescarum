@@ -63,8 +63,16 @@ module.exports = function(grunt) {
 				compatibility: 'ie9'
 			},
 			compress: {
-				src: ['css/reveal.css', 'custom/css/foo.scss'],
-				dest: 'css/reveal.min.css'
+				files: [
+					{
+                        src: ['css/reveal.css'],
+                        dest: 'css/reveal.min.css'
+					},
+					{
+                        src: ['custom/css/foo.css'],
+                        dest: 'custom/css/foo.min.css'
+					}
+				]
 			}
 		},
 
@@ -139,8 +147,7 @@ module.exports = function(grunt) {
 			},
 			css: {
 				files: [
-					'css/reveal.scss',
-					'custom/foo.scss'
+					'css/reveal.scss'
 				],
 				tasks: 'css-core'
 			},

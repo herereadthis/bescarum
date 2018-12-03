@@ -1,8 +1,40 @@
 .reveal {
+
+    font-family: Avenir, sans-serif;
+
     .math-formula {
         font-size: 125%;
         text-align: center;
         margin: 20px 0;
         color: #222;
+    }
+
+    @mixin slide-header {
+        position: fixed;
+        top: 0%;
+    }
+    .slide-header-right {
+        @include slide-header;
+        right: 0%;
+    }
+    .slide-header-left {
+        @include slide-header;
+        left: 0%;
+    }
+    @mixin slide-footer {
+        position: fixed;
+        bottom: calc(0%);
+    }
+    .slide-footer-right {
+        @include slide-footer;
+        right: 0%;
+    }
+    .slide-footer-left {
+        @include slide-footer;
+        left: 0%;
+    }
+    .footer-text {
+        font-size: 50%;
+        color: #999;
     }
 }
