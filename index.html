@@ -277,8 +277,6 @@
                 * **Random Variable** - variable with a value determined by a chance event.
                 * **A discrete sample space** *&Omega;* is a finite set of outcomes {*&omega;<sub>1</sub>,
                 &omega;<sub>2</sub>...*}. The probability of an outcome *&omega;* is *P(&omega;)*.
-                * **Discrete Probability Distribution** - a distribution that can be represented by a table. For
-                example, there are only 4 outcomes from flipping a coin 2 times.
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
@@ -528,8 +526,9 @@
                 ## Statistics
 
                 * What is **Statistic**? Information that can be computed from data
-                * **Pure Statistics** - a single value computed from data, such as a sample average
-                * **Interval Statistics** - an interval [*a, b*] computed from data.
+                  * **Pure Statistics** - a single value computed from data, such as a sample average
+                  * **Interval Statistics** - an interval [*a, b*] computed from data.
+                * **Statistical Inference** - draw conclusions about a large data set by analyzing smaller sets of data
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
@@ -547,6 +546,9 @@
                     experimentation
                 </li>
             </ul>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Bayesian vs Frequentist</p>
+            </div>
             <aside class="notes">
                 <ul>
                     <li>So honestly, when you ask "what is Probability?" you can't even get a unified answer.</li>
@@ -563,7 +565,7 @@
                         statistics since the 20th century.
                     </li>
                     <li>Frequentist: probability is objective obtained from experimentation</li>
-                    <li>So the funny thing is, in this 21st century, Bayesian inference is making a huge comeback with
+                    <li>The funny thing is, in this 21st century, Bayesian inference is making a huge comeback with
                         regards to machine learning and data analysis
                     </li>
                     <li>The main point to remember is neither one is inherently wrong or superior, it's just that the
@@ -573,13 +575,17 @@
             </aside>
         </section>
         <section
-                data-markdown
                 data-transition="fade-in">
-            ## Bayesian vs Frequentist
+            <div data-markdown>
+                ## Bayesian vs Frequentist
 
-            A coin is flipped 100 times and it lands heads 60 times.
-            * Bayesian: What is the probability of landing more than 60 heads *P(X > 59)*?
-            * Frequentist: is the coin fair?
+                A coin is flipped 100 times and it lands heads 60 times.
+                * Bayesian: What is the probability of landing more than 60 heads *P(X > 59)*?
+                * Frequentist: Does 60 heads mean the coin is fair?
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Bayesian vs Frequentist</p>
+            </div>
         </section>
         <section
                 data-transition="fade-in"
@@ -590,11 +596,79 @@
         </section>
         <section
                 data-transition="fade-in">
-            <h1>Bayesian Statistics</h1>
+            <h2>Bayesian Statistics</h2>
             <ul>
                 <li>Conclusions are subjective and can be updated</li>
-                <li>Use prior knowledge</li>
+                <li>Use prior knowledge and iterate</li>
+                <li>Used for machine learning and spam filters</li>
+                <li>Weakness: what is a "Prior?"</li>
             </ul>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Bayesian vs Frequentist</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Bayes&rsquo; Theorem Again!</h2>
+            <div class="math-formula">$$P(\mathcal{H}|\mathcal{D}) = \frac{P(\mathcal{D}|\mathcal{H})P(\mathcal{H})}{P(\mathcal{D})}$$</div>
+            <div class="">$$P(Hypothesis|Data) = \frac{P(Data|Hypothesis)P(Hypothesis)}{P(Data)}$$</div>
+            <div class="math-formula fragment">$$Posterior = \frac{Prior \times Likelihood}{Evidence}$$</div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Bayes&rsquo; Example</h2>
+            <p><em>2 out of every 1000 people have the foo gene. There is a test for it that is 99% accurate. You've tested positive.</em></p>
+            <ul class="fragment">
+                <li><span>\(Prior = P(\mathcal{D}|\mathcal{H}) = 0.99\)</span></li>
+                <li><span>\(Likelihood = P(\mathcal{H}) = 0.002\)</span></li>
+                <li><span>\({Evidence = P(\mathcal{D}) = 0.99(0.002) + 0.01(0.998) = 0.01196}\)</span></li>
+            </ul>
+            <div class="math-formula fragment">$$P(\mathcal{H}|\mathcal{D}) = \frac{0.99\times0.002}{0.01196} = 0.166$$</div>
+
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Bayesian vs Frequentist</p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>In other words, the probability of having the foo gene is 0.002</li>
+                    <li>What is the probability that a person has the foo gene given that they test positive?</li>
+                    <li>Hypothesis: H = person has the foo gene</li>
+                    <li>Data: D = the test is positive</li>
+                    <li>Prior - probability of a positive test if you have the gene</li>
+                    <li>Likelihood - probability of having the gene</li>
+                    <li>Evidence - a true positive test for those who have the gene, and a false positive for those who don't have it</li>
+                </ul>
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div data-markdown>
+                ## Base Rate Fallacy
+
+                The probability that a person who tests positive actually has the gene is surprisingly low, despite the test being 99% accurate.
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Bayesian vs Frequentist</p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Suppose the population was a thousand people. Then the expected number of people who actually have the disease is 2. Of the remaining 998 people, 1% of them will test positive. which will be about 10 other people.</li>
+                </ul>
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Frequentist Statistics</h2>
+            <ul>
+                <li>Conclusions are objective</li>
+                <li>Approach problems like a flowchart</li>
+                <li>p-values</li>
+                <li>Dominant approach for 20th century</li>
+                <li>Weakness: how do you model an experiment</li>
+            </ul>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Bayesian vs Frequentist</p>
+            </div>
         </section>
     </div>
 </div>
