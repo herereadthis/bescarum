@@ -612,15 +612,15 @@
             <h2>Bayes&rsquo; Theorem Again!</h2>
             <div class="math-formula">$$P(\mathcal{H}|\mathcal{D}) = \frac{P(\mathcal{D}|\mathcal{H})P(\mathcal{H})}{P(\mathcal{D})}$$</div>
             <div class="">$$P(Hypothesis|Data) = \frac{P(Data|Hypothesis)P(Hypothesis)}{P(Data)}$$</div>
-            <div class="math-formula fragment">$$Posterior = \frac{Prior \times Likelihood}{Evidence}$$</div>
+            <div class="math-formula fragment">$$Posterior = \frac{Likelihood \times Prior}{Evidence}$$</div>
         </section>
         <section
                 data-transition="fade-in">
             <h2>Bayes&rsquo; Example</h2>
             <p><em>2 out of every 1000 people have the foo gene. There is a test for it that is 99% accurate. You've tested positive.</em></p>
             <ul class="fragment">
-                <li><span>\(Prior = P(\mathcal{D}|\mathcal{H}) = 0.99\)</span></li>
-                <li><span>\(Likelihood = P(\mathcal{H}) = 0.002\)</span></li>
+                <li><span>\(Likelihood = P(\mathcal{D}|\mathcal{H}) = 0.99\)</span></li>
+                <li><span>\(Prior = P(\mathcal{H}) = 0.002\)</span></li>
                 <li><span>\({Evidence = P(\mathcal{D}) = 0.99(0.002) + 0.01(0.998) = 0.01196}\)</span></li>
             </ul>
             <div class="math-formula fragment">$$P(\mathcal{H}|\mathcal{D}) = \frac{0.99\times0.002}{0.01196} = 0.166$$</div>
@@ -653,6 +653,7 @@
             <aside class="notes">
                 <ul>
                     <li>Suppose the population was a thousand people. Then the expected number of people who actually have the disease is 2. Of the remaining 998 people, 1% of them will test positive. which will be about 10 other people.</li>
+                    <li>The evidence is the probability of data - the probability of testing positive</li>
                 </ul>
             </aside>
         </section>
