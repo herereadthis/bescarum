@@ -187,7 +187,7 @@
                 </li>
                 <li>
                     <p><strong>Mutually Exclusive</strong></p>
-                    <span class="math-formula">\(P(A \cap B) = P(A)\)</span>
+                    <span class="math-formula">\(P(A \cap B) = P(A) \times P(B)\)</span>
                 </li>
             </ul>
             <aside class="notes">
@@ -204,7 +204,7 @@
             <h2>Conditional Probability</h2>
             <p>What is the probability that you draw from a pack of cards 2 diamonds in a row?</p>
             <span class="math-formula fragment">\(P(D_2 \cap D_1)\)</span>
-            <span class="math-formula fragment">= \(P(D_2|D_1) * P(D_1)\)</span>
+            <span class="math-formula fragment">= \(P(D_2|D_1) \times P(D_1)\)</span>
             <div class="fragment">
                 <p class="math-formula">\(P(D_1) = \frac{13}{52} = \frac{1}{4}\)</p>
                 <p class="math-formula">\(P(D_2|D_1) = \frac{12}{51}\)</p>
@@ -271,12 +271,12 @@
         </section>
         <section
                 data-transition="fade-in">
-            <div data-markdown>
-                ## Discrete Random Variables
-
-                * **Random Variable** - variable with a value determined by a chance event.
-                * **A discrete sample space** *&Omega;* is a finite set of outcomes {*&omega;<sub>1</sub>,
-                &omega;<sub>2</sub>...*}. The probability of an outcome *&omega;* is *P(&omega;)*.
+            <div>
+                <h2>Discrete Random Variables</h2>
+                <ul>
+                    <li><strong>Random Variables</strong> - variable with a value determined by a chance event.</li>
+                    <li>A <strong>discrete sample space</strong> \(\Omega\) is a finite set of outcomes \(\{\omega_1, \omega_2...*\}\). The probability of outcome \(\omega\) is \(P(\omega)\).</li>
+                </ul>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
@@ -362,7 +362,7 @@
                             <th>6</th>
                         </tr>
                         <tr>
-                            <td>pdf</td>
+                            <td>pmf</td>
                             <td>\(p(a)\)</em></td>
                             <td>1/36</td>
                             <td>3/36</td>
@@ -576,12 +576,15 @@
         </section>
         <section
                 data-transition="fade-in">
-            <div data-markdown>
-                ## Bayesian vs Frequentist
+            <div>
+                <h2>Bayesian vs Frequentist</h2>
 
-                A coin is flipped 100 times and it lands heads 60 times.
-                * Bayesian: What is the probability of landing more than 60 heads *P(X > 59)*?
-                * Frequentist: Does 60 heads mean the coin is fair?
+                <p><em>A coin is flipped 100 times and it lands heads 60 times.</em></p>
+
+                <ul>
+                    <li>Bayesian: What is the probability of landing more than 60 heads \(P(X > 59)\)?</li>
+                    <li>Frequentist: Does 60 heads mean the coin is fair?</li>
+                </ul>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Bayesian vs Frequentist</p>
@@ -601,7 +604,19 @@
                 <li>Conclusions are subjective and can be updated</li>
                 <li>Use prior knowledge and iterate</li>
                 <li>Used for machine learning and spam filters</li>
-                <li>Weakness: what is a "Prior?"</li>
+                <li>Uncertainty can be modeled</li>
+                <li>Easier to reason, at least at a high level.</li>
+            </ul>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Bayesian vs Frequentist</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Bayesian Statistics: Weaknesses</h2>
+            <ul>
+                <li>What is a "Prior?"</li>
+                <li>Math is crazy nuts complicated</li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Bayesian vs Frequentist</p>
@@ -617,7 +632,8 @@
         <section
                 data-transition="fade-in">
             <h2>Bayes&rsquo; Example</h2>
-            <p><em>2 out of every 1000 people have the foo gene. There is a test for it that is 99% accurate. You've tested positive.</em></p>
+            <p><em>2 out of every 1000 people have the X gene. There is a test for it that is 99% accurate. You've tested positive.</em><br />
+            <span class="fragment">Hypothesis: Do you have the mutant X gene?</span></p>
             <ul class="fragment">
                 <li><span>\(Likelihood = P(\mathcal{D}|\mathcal{H}) = 0.99\)</span></li>
                 <li><span>\(Prior = P(\mathcal{H}) = 0.002\)</span></li>
@@ -666,6 +682,17 @@
                 <li>p-values</li>
                 <li>Dominant approach for 20th century</li>
                 <li>Weakness: how do you model an experiment</li>
+            </ul>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Bayesian vs Frequentist</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Frequentist Weaknesses</h2>
+            <ul>
+                <li>Conclusions are objective</li>
+                <li>The p-value is the probability of seeing your result if \(H_0\) were true. Huh?</li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Bayesian vs Frequentist</p>
