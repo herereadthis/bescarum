@@ -50,6 +50,7 @@
                         <li><em>Which really aren't A/B Tests, but get grouped in with them anyway</em></li>
                     </ul>
                 </li>
+                <li class="fragment">Michael Bayesian Craziness</li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">Introduction</p>
@@ -61,7 +62,7 @@
             <ul>
                 <li>Improves User Experience</li>
                 <li>Accelerates Innovation</li>
-                <li>CASH MONEY $$ SYNERGY ROI BLOCKCHAIN</li>
+                <li>CASH MONEY $$$ SYNERGY ROI BLOCKCHAIN</li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">Introduction</p>
@@ -87,10 +88,8 @@
             <h2>Presentation Overview</h2>
             <ol>
                 <li>Define Probability and Statistics</li>
-                <li>Bayesian vs Frequentist Statistics</li>
-                <li>Null Hypothesis Significance Testing (NHST)</li>
-                <li>Sampling Sizes</li>
-                <li>Power Analysis</li>
+                <li>Frequentist Statistics</li>
+                <li>Bayesian Statistics</li>
                 <li>Multivariate Testing</li>
                 <li>Weaknesses and Considerations in A/B Tests</li>
             </ol>
@@ -131,7 +130,7 @@
         <section
                 data-transition="fade-in">
             <h2>What's the point?</h2>
-            <ul>
+            <ol>
                 <li>If I flip a coin 10 times and it lands heads 7 times, is the coin rigged? \(P(X = 7)\)</li>
                 <li class="fragment">10% of contributors who debrief a session will create an annotation.
                     <ul>
@@ -141,7 +140,7 @@
                         <li>Did the change have an effect?</li>
                         <li>Is a sample size \(n=50\) good enough?</li>
                     </ul>
-            </ul>
+            </ol>
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
             </div>
@@ -150,7 +149,7 @@
                 data-transition="fade-in">
             <h2>Probability</h2>
             <ul>
-                <li>What is Probability (<em>P</em>)? A measure of the the likelihood an event will occur.</em></li>
+                <li>What is Probability \((P)\)? A measure of the likelihood an event will occur.</em></li>
                 <li>\(P(A)\) - The probability of event A</li>
                 <li>\(p=0\) - the event will not occur</li>
                 <li>\(p=1\) - the event will occur</li>
@@ -256,18 +255,6 @@
                 * Also the pathologist hid knowledge that one of the babies had a staph infection
                 * She was release on January 2003, but died in March 2007 from alcohol poisoning.
             </aside>
-        </section>
-        <section
-                data-transition="fade-in">
-            <h2>Bayes' Theorem</h2>
-            <div class="math-formula">$$P(B|A) = \frac{P(A|B)P(B)}{P(A)}$$</div>
-            <div class="fragment">
-                <div class="math-formula">$$P(B|A)P(A) = P(A \cap B) = P(A|B)P(B)$$</div>
-                <div class="math-formula">$$P(B|A)P(A) = P(A|B)P(B)$$</div>
-            </div>
-            <div class="slide-footer-left">
-                <p class="footer-text">1. Probability & Statistics</p>
-            </div>
         </section>
         <section
                 data-transition="fade-in">
@@ -478,6 +465,43 @@
         <section
                 data-transition="fade-in">
             <div>
+                <h2>Binomial Distribution</h2>
+                <p><em>Lots and lots of Bernoulli Trials</em></p>
+                <ul class="fragment">
+                    <li><strong>Binomial Coefficient</strong> - the number of ways to pick \(k\) unordered outcomes from \(n\) possibilities
+                        <span class="math-formula">$$_nC_k =  \begin{pmatrix}n \\k \end{pmatrix} = \frac{n!}{k!(n - k)!}$$</span>
+                        <span class="math-formula fragment">$$P(X = k) = \begin{pmatrix}n \\k \end{pmatrix}p^{k}(1-p)^{n-k}  $$</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">1. Probability & Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Binomial Coins</h2>
+                <p><em>What is the probability at least 3 heads in 5 coin flips?</em></p>
+                <p class="fragment"><em>What is the cdf of 3 out of 5?</em></p>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">1. Probability & Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Binomial Views</h2>
+                <p><em>90% of students will view their scores if released to them. What's the probability everyone in a class of 20 will view?</em></p>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">1. Probability & Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
                 <h2>Continuous Random Variables</h2>
 
                 <ul>
@@ -498,6 +522,50 @@
                     <li>If you take the integral of the pdf at all vales, then the area of all probability is 1</li>
                 </ul>
             </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Continuous Distributions</h2>
+
+                <table>
+                    <tr>
+                        <td>Uniform</td>
+                        <td>angle of a dart throw</td>
+                        <td>\(U(a,b)\)</td>
+                    </tr>
+                    <tr>
+                        <td>Beta</td>
+                        <td>batting average</td>
+                        <td>\(beta(a,b)\)</td>
+                    </tr>
+                    <tr>
+                        <td>Exponential</td>
+                        <td>waiting for a taxi</td>
+                        <td>\(exp(\lambda)\)</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>IQ</td>
+                        <td>\(N(\mu,\sigma^2)\)</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">1. Probability & Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>The Boring Distribution</h2>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Standard Z</h2>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Expected Value of Continuous Distributions</h2>
         </section>
         <section
                 data-transition="fade-in">
@@ -536,7 +604,7 @@
         </section>
         <section
                 data-transition="fade-in">
-            <h1>Bayesian vs. Frequentist</h1>
+            <h2>Theory Time!<br />Bayesian vs. Frequentist</h2>
             <p><em>Statistics require making lots of inferences</em></p>
             <ul>
                 <li class="fragment"><strong>Bayesian</strong>: probability is subjective and deduced from prior
@@ -547,7 +615,7 @@
                 </li>
             </ul>
             <div class="slide-footer-left">
-                <p class="footer-text">2. Bayesian vs Frequentist</p>
+                <p class="footer-text">1. Probability & Statistics</p>
             </div>
             <aside class="notes">
                 <ul>
@@ -583,11 +651,11 @@
 
                 <ul>
                     <li>Bayesian: What is the probability of landing more than 60 heads \(P(X > 59)\)?</li>
-                    <li>Frequentist: Does 60 heads mean the coin is fair?</li>
+                    <li>Frequentist: Is the coin fair?</li>
                 </ul>
             </div>
             <div class="slide-footer-left">
-                <p class="footer-text">2. Bayesian vs Frequentist</p>
+                <p class="footer-text">1. Probability & Statistics</p>
             </div>
         </section>
         <section
@@ -596,6 +664,124 @@
                 data-background-repeat="no-repeat"
                 data-background-size="contain"
                 style="margin: 10rem">
+        </section>
+        <section
+                data-transition="fade-in">
+            <h1>Frequentist Statistics</h1>
+            <ul>
+                <li>Conclusions are objective</li>
+                <li>Approach problems like a flowchart</li>
+                <li>p-values</li>
+                <li>Dominant approach for 20th century</li>
+                <li>Good for most large studies</li>
+            </ul>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Frequentist Weaknesses</h2>
+            <ul>
+                <li>Can't do small samples</li>
+                <li>People make dumb conclusions</li>
+                <li>Peeking causes false positives</li>
+                <li>The p-value is the probability of seeing your result if \(H_0\) were true. Wait, what?</li>
+            </ul>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Central Limit Theorem</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Null Hypothesis Significance Testing</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Innocent until proven guilty</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Critical Value</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Significance vs Power</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Testing Errors</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Margin of Error</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Modeling a Hypothesis Test</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Testing a population Proportion</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Testing a population mean</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Sampling Size</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Peeking</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Power Analysis</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
         </section>
         <section
                 data-transition="fade-in">
@@ -608,7 +794,7 @@
                 <li>Easier to reason, at least at a high level.</li>
             </ul>
             <div class="slide-footer-left">
-                <p class="footer-text">2. Bayesian vs Frequentist</p>
+                <p class="footer-text">3. Bayesian Statistics</p>
             </div>
         </section>
         <section
@@ -619,7 +805,20 @@
                 <li>Math is crazy nuts complicated</li>
             </ul>
             <div class="slide-footer-left">
-                <p class="footer-text">2. Bayesian vs Frequentist</p>
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Bayes' Theorem</h2>
+            <div>Muliplication rule: \(P(A \cap B) = P(A|B) * P(B)\)</div>
+            <div class="math-formula fragment">$$P(B|A) = \frac{P(A|B)P(B)}{P(A)}$$</div>
+            <div class="fragment">
+                <div class="math-formula">$$P(B|A)P(A) = P(A \cap B) = P(A|B)P(B)$$</div>
+                <div class="math-formula">$$P(B|A)P(A) = P(A|B)P(B)$$</div>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
             </div>
         </section>
         <section
@@ -642,7 +841,7 @@
             <div class="math-formula fragment">$$P(\mathcal{H}|\mathcal{D}) = \frac{0.99\times0.002}{0.01196} = 0.166$$</div>
 
             <div class="slide-footer-left">
-                <p class="footer-text">2. Bayesian vs Frequentist</p>
+                <p class="footer-text">3. Bayesian Statistics</p>
             </div>
             <aside class="notes">
                 <ul>
@@ -664,7 +863,7 @@
                 The probability that a person who tests positive actually has the gene is surprisingly low, despite the test being 99% accurate.
             </div>
             <div class="slide-footer-left">
-                <p class="footer-text">2. Bayesian vs Frequentist</p>
+                <p class="footer-text">3. Bayesian Statistics</p>
             </div>
             <aside class="notes">
                 <ul>
@@ -672,31 +871,6 @@
                     <li>The evidence is the probability of data - the probability of testing positive</li>
                 </ul>
             </aside>
-        </section>
-        <section
-                data-transition="fade-in">
-            <h2>Frequentist Statistics</h2>
-            <ul>
-                <li>Conclusions are objective</li>
-                <li>Approach problems like a flowchart</li>
-                <li>p-values</li>
-                <li>Dominant approach for 20th century</li>
-                <li>Weakness: how do you model an experiment</li>
-            </ul>
-            <div class="slide-footer-left">
-                <p class="footer-text">2. Bayesian vs Frequentist</p>
-            </div>
-        </section>
-        <section
-                data-transition="fade-in">
-            <h2>Frequentist Weaknesses</h2>
-            <ul>
-                <li>Conclusions are objective</li>
-                <li>The p-value is the probability of seeing your result if \(H_0\) were true. Huh?</li>
-            </ul>
-            <div class="slide-footer-left">
-                <p class="footer-text">2. Bayesian vs Frequentist</p>
-            </div>
         </section>
     </div>
 </div>
