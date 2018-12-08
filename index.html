@@ -50,7 +50,8 @@
                         <li><em>Which really aren't A/B Tests, but get grouped in with them anyway</em></li>
                     </ul>
                 </li>
-                <li class="fragment">Michael Bayesian Craziness</li>
+                <li class="fragment"><strong>A/A Tests</strong> - to make sure the service isn&rsquo;t fake news</li>
+                <li class="fragment">Michael Bayesian Craziness, a.k.a. <strong>Forecasting</strong></li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">Introduction</p>
@@ -383,7 +384,7 @@
                     <ul>
                         <li><strong>Discrete Mean</strong> - the average of a discrete random variable \(X\) a.k.a.
                             <strong>expected value</strong> of \(X\)
-                            <span class="math-formula">$$E(X) = \mu_{x} = \sum_{i=1}^n {x_{i} P(x_{i}) }$$</span>
+                            <span class="math-formula">$$E(X) = \mu_{x} = \sum_{i=1}^n p(x_{i}){x_{i} }$$</span>
                         </li>
                     </ul>
                 </div>
@@ -549,6 +550,11 @@
                         <td>IQ</td>
                         <td>\(N(\mu,\sigma^2)\)</td>
                     </tr>
+                    <tr>
+                        <td>Student \(t\)</td>
+                        <td>Guinness Beer</td>
+                        <td>\(t(df)\)</td>
+                    </tr>
                 </table>
             </div>
             <div class="slide-footer-left">
@@ -597,6 +603,20 @@
                   * **Pure Statistics** - a single value computed from data, such as a sample average
                   * **Interval Statistics** - an interval [*a, b*] computed from data.
                 * **Statistical Inference** - draw conclusions about a large data set by analyzing smaller sets of data
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">1. Probability & Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div data-markdown>
+                ## Inferential Statistics
+
+
+                * **Parameter estimation** - some value that determines the properties of the distribution, such as \\(\mu\\) or \\(\sigma\\)
+                * **Data Prediction** - use information about sample to predict a random selection
+                * **Model comparison** - selecting a model which best explains the observed data, something that postulates the relationship between factors and the data
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
@@ -668,12 +688,12 @@
         <section
                 data-transition="fade-in">
             <h1>Frequentist Statistics</h1>
+            <p><em>Probabilities present long-term frequencies of repeatable random experiments.</em></p>
             <ul>
                 <li>Conclusions are objective</li>
                 <li>Approach problems like a flowchart</li>
-                <li>p-values</li>
+                <li>Assign probability to the data, not degrees of belief</li>
                 <li>Dominant approach for 20th century</li>
-                <li>Good for most large studies</li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
@@ -685,9 +705,18 @@
             <ul>
                 <li>Can't do small samples</li>
                 <li>People make dumb conclusions</li>
-                <li>Peeking causes false positives</li>
+                <li>So many false positives</li>
                 <li>The p-value is the probability of seeing your result if \(H_0\) were true. Wait, what?</li>
             </ul>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>R. A. Fisher</h2>
+            <img src="custom/media/fisher.jpg" style="height: 55vh;" />
+            <p>A guy wearing a college professor costume</p>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
@@ -701,17 +730,44 @@
         </section>
         <section
                 data-transition="fade-in">
-            <h2>Null Hypothesis Significance Testing</h2>
+            <div data-markdown>
+                ## Null Hypothesis Significance Testing
+
+                * **Null Hypothesis** \\(H_0\\) - Currently accepted value for a parameter.
+                * **Alternate Hypothesis** \\(H_A\\) - Claim to be tested
+                * \\(H_0\\) and \\(H_A\\) are opposites. They must represent all possible answers.
+                * **Neyman-Pearson Paradigm** - If the data is well outside the what is expected under the null hypothesis, then reject the null hypothesis.
+            </div>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * **Alternate Hypothesis**  is also called &ldquo;research hypothesis&rdquo;
+                * In A/B Testing, the null hypothesis is called the control, the Alternate hypothesis is called the Treatment
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
-            <h2>Innocent until proven guilty</h2>
+            <div data-markdown>
+                ## Innocent until proven guilty
+
+                *We assume the null hypothesis is true.*
+
+                * \\(H_0\\) - defendant is innocent
+                * \\(H_A\\) - defendant is guilty
+                * If evidence proves otherwise, then we will ***reject*** the null hypothesis (innocent verdict)
+                * If there isn't evidence to prove otherwise, then we will ***fail to reject*** the null hypothesis (not guilty)
+
+            </div>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * Analogy to US courts: you are presumed to be innocent.
+                * It is up to the evidence to prove guilt.
+                * You don't have to prove innocence (aka null hypothesis)
+            </aside>
+        </section>
         </section>
         <section
                 data-transition="fade-in">
@@ -737,6 +793,13 @@
         <section
                 data-transition="fade-in">
             <h2>Margin of Error</h2>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Confidence Intervals</h2>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
@@ -784,8 +847,13 @@
             </div>
         </section>
         <section
+                data-background-video="custom/media/flamingo.mp4"
+                data-background-video-loop="true"
                 data-transition="fade-in">
-            <h2>Bayesian Statistics</h2>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h1>3. Bayesian Statistics</h1>
             <ul>
                 <li>Conclusions are subjective and can be updated</li>
                 <li>Use prior knowledge and iterate</li>
@@ -801,17 +869,30 @@
                 data-transition="fade-in">
             <h2>Bayesian Statistics: Weaknesses</h2>
             <ul>
-                <li>What is a "Prior?"</li>
-                <li>Math is crazy nuts complicated</li>
+                <li>What exactly a "Prior?"</li>
+                <li>What if you have no prior?</li>
+                <li>It's not wrong to want a simple a yes/no answer.</li>
+                <li>Bayesian math is crazy nuts complicated</li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
             </div>
         </section>
         <section
+
+                data-background-image="custom/media/explosions.jpg"
                 data-transition="fade-in">
-            <h2>Bayes' Theorem</h2>
-            <div>Muliplication rule: \(P(A \cap B) = P(A|B) * P(B)\)</div>
+            <h2 style="color: #FFF;background-color: rgba(0,0,0,0.8);display: inline;padding: 0 1%;">Michael Bay</h2><br/>
+            <img src="custom/media/michael-bay.jpg" style="height: 45vh" /><br />
+            <p style="color: #FFF;background-color: rgba(0,0,0,0.8);display: inline;padding: 0 1%;font-size: 150%;"><em>S*** just got real.</em></p>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Michael Bay&rsquo;s Theorem</h2>
+            <div>Muliplication rule: \(P(A \cap B) = P(A|B) \cdot P(B)\)</div>
             <div class="math-formula fragment">$$P(B|A) = \frac{P(A|B)P(B)}{P(A)}$$</div>
             <div class="fragment">
                 <div class="math-formula">$$P(B|A)P(A) = P(A \cap B) = P(A|B)P(B)$$</div>
@@ -871,6 +952,34 @@
                     <li>The evidence is the probability of data - the probability of testing positive</li>
                 </ul>
             </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Sequential Updating</h2>
+                <p><em>Run the test again!</em></p>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>The Beta Distribution</h2>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Conjugate Priors</h2>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
         </section>
     </div>
 </div>
