@@ -1,5 +1,15 @@
 .reveal {
 
+    body & h1 {
+        font-size: 2.7em;
+        //text-transform: none;
+    }
+
+    body & h2 {
+        font-size: 1.8em;
+        text-transform: none;
+    }
+
     font-family: Avenir, sans-serif;
 
     .math-formula {
