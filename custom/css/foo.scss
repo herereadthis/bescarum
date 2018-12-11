@@ -67,4 +67,20 @@
                 2px 2px 3px #000;
         display: inline;
     }
+
+    body & pre {
+
+        code {
+            padding: 10px;
+            max-height: 500px;
+        }
+
+        &.fat-code {
+            width: 95%;
+
+            code {
+                font-size: 0.9em;
+            }
+        }
+    }
 }

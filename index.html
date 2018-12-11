@@ -51,7 +51,7 @@
                     </ul>
                 </li>
                 <li class="fragment"><strong>A/A Tests</strong> - to make sure the service isn&rsquo;t fake news</li>
-                <li class="fragment">Michael Bayesian Craziness, a.k.a. <strong>Forecasting</strong></li>
+                <li class="fragment">Michael Bayesian Craziness, a.k.a. <strong>Simulations</strong></li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">Introduction</p>
@@ -91,13 +91,18 @@
                 <li>Define Probability and Statistics</li>
                 <li>Frequentist Statistics</li>
                 <li>Bayesian Statistics</li>
-                <li>Multivariate Testing</li>
+                <li><span style="text-decoration: line-through;">Multivariate Testing</span></li>
                 <li>Implementation</li>
                 <li>Faults in A/B Tests</li>
             </ol>
             <div class="slide-footer-left">
                 <p class="footer-text">Introduction</p>
             </div>
+            <aside class="notes" data-markdown>
+                * Sorry, I'm gonna skip multivariate testing (or at least the math for it) because it is nuts complicated
+                * Everything that makes A/B testing complicated is orders of magnitude crazier when you introduce multi-dimensional parameters
+                * Towards the end of part of Bayesian statics I'll mention briefly a family of tools called Markov Chain Monte Carlo simulations, which is one of the major elements of multivariate testing.
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
@@ -112,7 +117,7 @@
                 data-transition="fade-in">
             <aside class="notes">
                 <ul>
-                    <li>So I'm gonna try to cram a few semesters worth of statistics in the next hour</li>
+                    <li>So I'm gonna try to cram a bunch of statistics in the next hour</li>
                     <li>I really do think it's important to understand why or how decisions in A/B testing are made.
                     </li>
                     <li>We could skip all this and just say, okay show me the formulas and I'll plug the A/B test data
@@ -131,7 +136,7 @@
         </section>
         <section
                 data-transition="fade-in">
-            <h2>What's the point?</h2>
+            <h2>What&rsquo;s the point?</h2>
             <ol>
                 <li>If I flip a coin 10 times and it lands heads 7 times, is the coin rigged? \(P(X = 7)\)</li>
                 <li class="fragment">10% of contributors who debrief a session will create an annotation.
@@ -155,7 +160,7 @@
         </section>
         <section
                 data-transition="fade-in">
-            <h2>Probability</h2>
+            <h2>Probability 101</h2>
             <ul>
                 <li>What is Probability \((P)\)? A measure of the likelihood an event will occur.</em></li>
                 <li>\(P(A)\) - The probability of event A</li>
@@ -333,6 +338,11 @@
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * You can often determine which one you need by listening to the question.
+                * If someone asks what is the probability of getting exactly blah heads in so many coin flips, it's a pmf
+                * If someone asks what is the probability of getting at least blah head in so many coin flips, it's a cdf
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
@@ -403,6 +413,9 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">1. Probability & Statistics</p>
             </div>
         </section>
         <section
@@ -487,6 +500,8 @@
                 <p class="footer-text">1. Probability & Statistics</p>
             </div>
             <aside class="notes" data-markdown>
+                * A bernoulli trial is one user coming to your website, he either buys or he doesn't buy
+                * A binomial distribution is 1000 users coming to your site. Some buy and some don't buy
                 * For example, how many ways can you choose 2 heads from flipping 4 coins? it would be 4! divided by 2! times 2! which equals 6
             </aside>
         </section>
@@ -509,6 +524,9 @@
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * So if I have 100 coins and they are all fair, the expected value of heads is 100 * 0.5 = 50
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
@@ -588,6 +606,31 @@
             </aside>
         </section>
         <section
+            data-transition="fade-in">
+            <div>
+                <h2>Binomial Views With Code</h2>
+                <p><em>Ain&rsquo;t nobody got time to math.</em></p>
+
+                <pre><code data-trim data-noescape>
+                    from scipy.stats import binom
+
+                    sample_size = 20
+                    p = 0.9
+
+                    # all 20 will view score
+                    all_probability = binom.pmf(20, sample_size, p)
+                    print(all_probability)
+                    # 0.121576654591
+
+                    # at least 18 students will view score
+                    cumulative_probability = binom.cdf(20, sample_size, p)
+                    print(cumulative_probability)
+                    # 0.608253001875
+                </code></pre>
+            </div>
+
+        </section>
+        <section
                 data-transition="fade-in">
             <div>
                 <h2>Continuous Random Variables</h2>
@@ -629,7 +672,7 @@
                     </tr>
                     <tr>
                         <td>Exponential</td>
-                        <td>waiting for a taxi</td>
+                        <td>Finding an Uber</td>
                         <td>\(exp(\lambda)\)</td>
                     </tr>
                     <tr>
@@ -714,6 +757,7 @@
                 <p class="footer-text">1. Probability & Statistics</p>
             </div>
         </section>
+        <!--
         <section
                 data-transition="fade-in">
             <div data-markdown>
@@ -728,6 +772,7 @@
                 <p class="footer-text">1. Probability & Statistics</p>
             </div>
         </section>
+        -->
         <section
                 data-transition="fade-in">
             <div data-markdown>
@@ -763,10 +808,12 @@
             <aside class="notes">
                 <ul>
                     <li>The normal distribution just doesn't happen everywhere, contrary to what we think</li>
+                    <li>Suppose you're researching penguins. Today you grab 10 penguins and get their average weight. Tomorrow you grab another 10 penguins and get their average weight. You do this over an over again and if you graph all those averages, you get a normal distribution.</li>
                     <li>Experimentation is what makes the normal distribution</li>
                 </ul>
             </aside>
         </section>
+        <!--
         <section
                 data-transition="fade-in">
             <div>
@@ -784,10 +831,13 @@
                 <p class="footer-text">1. Probability & Statistics</p>
             </div>
         </section>
+        -->
         <section
                 data-transition="fade-in">
             <div>
                 <h2>Sample Statistics</h2>
+
+                <p><em>Let \(S_n\) the the sum of \(x_1, x_2, ..., x_n\) random variables</em></p>
 
                 <table>
                     <tr>
@@ -991,7 +1041,7 @@
             <div>
                 <h2>Standardization</h2>
                 <p><em>Map the sample to the Z distribution to math easier</em></p>
-                <span class="math-formula">$$z = \frac{ \overline{x} -  \mu_{0}}{  \sigma/\sqrt{n} }$$</span>
+                <span class="math-formula">$$Z = \frac{ \overline{x} -  \mu_{0}}{  \sigma/\sqrt{n} }$$</span>
 
             </div>
             <div class="slide-footer-left">
@@ -1050,6 +1100,23 @@
 
                     two_tail = 2 * (1 - norm.cdf(zscore))
                     print('2-tail: {0}'.format(two_tail))
+                </code></pre>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Finding Z-Score</h2>
+
+            <pre><code data-trim data-noescape>
+                    from scipy.stats import norm
+
+                    significance_input = 'What is the significance level (alpha)? '
+                    alpha = input(significance_input)
+
+                    z_score = norm.ppf((1 - alpha))
+                    print('Z-score: {0}'.format(z_score))
                 </code></pre>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
@@ -1145,10 +1212,21 @@
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * 30 / 214 is 14% so at first glance it seems like an improvement
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
             <h2>Testing a population Proportion</h2>
+            <ul>
+                <li>Historically, 12% of participants will upload a profile pic</li>
+                <li>We&rsquo;ve updated the UI. From a sample of 214 new participants, 30 uploaded a profile picture</li>
+                <li class="fragment">With \(\alpha = 0.05\), can we reject \(H_0\)? (\(z_{\alpha=0.05} = 1.645\))
+                    <span class="fragment">\({Z = \frac{ \overline{x} -  \mu_{0}}{  \sigma/\sqrt{n} } = \frac{ \frac{k}{n} -  \mu_{0}}{  \sqrt{\frac{p(1-p)}{n}} } = \frac{ \frac{30}{214} - 0.12}{  \sqrt{\frac{0.12(1 - 0.12)}{214}} } = 0.909}\)</span>
+                </li>
+                <li class="fragment">Since \(Z_{H_A} = 0.909 < Z_{H_0} = 1.649\), we do not reject \(H_0\)</li>
+            </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
@@ -1156,20 +1234,13 @@
         <section
                 data-transition="fade-in">
             <h2>Testing a population mean</h2>
-            <div class="slide-footer-left">
-                <p class="footer-text">2. Frequentist Statistics</p>
-            </div>
-        </section>
-        <section
-                data-transition="fade-in">
-            <h2>Margin of Error</h2>
-            <div class="slide-footer-left">
-                <p class="footer-text">2. Frequentist Statistics</p>
-            </div>
-        </section>
-        <section
-                data-transition="fade-in">
-            <h2>Confidence Intervals</h2>
+            <ul>
+                <li>A manufacturer claims its thermostats last more than 10,000 days. In a sample of 30, the \(\mu\) time before everyone froze was 9,900 days with \(\sigma = 120\).</li>
+                <li class="fragment">With \(\alpha = 0.05\), can we reject \(H_0\)? (\(z_{\alpha=0.05} = -1.645\))
+                    <span class="fragment">$${Z = \frac{ \overline{x} -  \mu_{0}}{  \sigma/\sqrt{n} } = \frac{ 9900 -10000}{  120 \sqrt{30}  } = -4.456}$$</span>
+                </li>
+                <li class="fragment">Since \(Z_{H_A} = -4.456 < Z_{H_0} = -1.649\), we reject \(H_0\)</li>
+            </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
@@ -1177,23 +1248,121 @@
         <section
                 data-transition="fade-in">
             <h2>Sampling Size</h2>
+            <p><em>How big does a sample size need to be before you can trust the data not to be <span style="text-decoration: line-through">total garbage</span> just noise?</em></p>
+            <ul class="fragment">
+                <li>More variance = More data required.</li>
+                <li>Things with unknown variance (e.g., purchase $ amount) require t-test.</li>
+                <li>Binomial distributions typically have less variance than normal distributions</li>
+                <li>Conversions require the smallest sampling size</li>
+                <li>Smaller sample sizes = more testing</li>
+            </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Sample Size For Proportions</h2>
+            <p><em>How much data do I need to collect in order to<br />measure an \(x\%\) change in conversion rate?</em></p>
+            <span>$$n = (Z_{\alpha/2}+Z_{1-\beta})^{2} \cdot \frac{p_1(1-p_1)+p_2(1-p_2) }{(p_1-p_2)^2}$$</span>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Measuring Uplift</h2>
+            <ul>
+                <li>The feature currently has a 10% conversion rate</li>
+                <li>Detect at least a 25% uplift, with \(\alpha = 0.05\) and  \(\beta = 0.80\)
+                    <span class="math-formula fragment">$$p_{H_0} = 0.1, p_{H_A} = 1.25p_{H_0} = 0.125$$</span>
+                    <span class="math-formula fragment">$${n = (1.960 + 0.842)^2 \cdot \frac{0.199}{-0.025^2} \approx 2504}$$</span>
+                </li>
+                <li class="fragment">Was that bigger than you thought?</li>
+            </ul>
         </section>
         <section
                 data-transition="fade-in">
             <h2>Peeking</h2>
+            <p><em>In Frequentist testing, always determine the sample size beforehand.</em></p>
+            <ul>
+                <li>Never check progress even if one version looks to be outperforming the other!!!</li>
+                <li>You want garbage? This is how you get Type I errors.</li>
+            </ul>
+
+
+            <table class="fragment" style="font-size: 0.6em;margin-top: 0.5em">
+                <tr>
+                    <th></th>
+                    <th>A/B Test 1</th>
+                    <th>A/B Test 2</th>
+                    <th>A/B Test 3</th>
+                    <th>A/B Test 4</th>
+                </tr>
+                <tr>
+                    <td>1000 observations</td>
+                    <td>Don't reject <em>H<sub>0</sub></em></td>
+                    <td>Don't reject <em>H<sub>0</sub></em></td>
+                    <td bgColor="#CCFFCC">Reject <em>H<sub>0</sub></em></td>
+                    <td bgColor="#CCFFCC">Reject <em>H<sub>0</sub></em></td>
+                </tr>
+                <tr>
+                    <td>2000 observations</td>
+                    <td>Don't reject <em>H<sub>0</sub></em></td>
+                    <td bgColor="#CCFFCC">Reject <em>H<sub>0</sub></em></td>
+                    <td bgColor="#CCFFCC">Reject <em>H<sub>0</sub></em></td>
+                    <td>Don't reject <em>H<sub>0</sub></em></td>
+                </tr>
+                <tr>
+                    <td>End Result</td>
+                    <td>Don't reject <em>H<sub>0</sub></em></td>
+                    <td bgColor="#CCFFCC">Reject <em>H<sub>0</sub></em></td>
+                    <td bgColor="#CCFFCC">Reject <em>H<sub>0</sub></em></td>
+                    <td bgColor="#CCFFCC">Reject <em>H<sub>0</sub></em></td>
+                </tr>
+            </table>
+
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * Maybe after 2000 observations there's some regression
+                * This is major problem with so many A/B testing services. They allow you to track progress.
+                * They kinda have to. It's what the client wants. They can't just say, okay run your test, check back in a few weeks.
+                * That is the dilemma. I'm sure all those A/B testing services have Ph.D statisticians working for them, and they are all probably saying over to the marketing team: STOP PEEKING, but the marketing team can't just sell a mystery black box to clients.
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
             <h2>Power Analysis</h2>
+            <p><em>How to compare two population proportions</em></p>
+            <span class="math-formula">$$Z= \frac{X - \mu}{\sigma} = \frac{\widehat{p}_1-\widehat{p}_2}{\sqrt{\widehat{p}(1-\widehat{p}) \left ( \frac{1}{n_1} + \frac{1}{n_2} \right )  }}$$</span>
+            <span class="math-formula">$${\widehat{p_1} = \frac{x_1}{n_1} , \widehat{p_2} = \frac{x_2}{n_2} , \widehat{p} = \frac{x_1+x_2}{n_1+n_2} }$$</span>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * Okay this is the season finale of Frequentist testing.
+                * It's finally the formula you can plug all the numbers into, and not have to worry where the formula came from
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>Raw Fish</h2>
+            <ul>
+                <li>Of the 50 times I've placed an order for Sakedon under my name &ldquo;Jimmy,&rdquo; I&rsquo;ve gotten extra salmon 23 times.</li>
+                <li>Of the 70 times using the alias, &ldquo;Hot Carlos,&rdquo; I&rsquo;ve gotten extra salmon 43 times.</li>
+                <li><strong>Should I continue to let them think I'm Jimmy?</strong></li>
+                <li class="fragment">Test Statistic
+                    <span style="font-size: 0.85em;">\(X = \widehat{p}_1-\widehat{p}_2 = \frac{23}{50}-\frac{43}{70} \approx -0.1543\)</span></li>
+                <li class="fragment">Z-score
+                    <span style="font-size: 0.85em;">\(Z = \frac{-0.1543}{0.0921} \approx -1.6749\)</span></li>
+                <li class="fragment"> \(p\)-value: \(P(Z < -1.6749) \approx 0.0470\) or 4.7%</li>
+                <li class="fragment">If \(H_o\) is true, then there&rsquo;s a 4.7% chance \(\Delta\mu < 0.1543\).</li>
+            </ul>
+            <div class="slide-footer-left">
+                <p class="footer-text">2. Frequentist Statistics</p>
+            </div>
+            <aside class="notes" data-markdown>
+                * In other words, there's a 4.7% chance calling myself Hot Carlos makes no difference
+            </aside>
         </section>
         <section
                 data-background-video="custom/media/flamingo.mp4"
@@ -1206,7 +1375,7 @@
             <ul>
                 <li>Conclusions are subjective and can be updated</li>
                 <li>Use prior knowledge and iterate</li>
-                <li>Used for machine learning and spam filters</li>
+                <li>Machine learning, spam filters, weather forcasting</li>
                 <li>Uncertainty can be modeled</li>
                 <li>Easier to reason, at least at a high level.</li>
             </ul>
@@ -1222,10 +1391,14 @@
                 <li>What if you have no prior?</li>
                 <li>It's not wrong to want a simple a yes/no answer.</li>
                 <li>Bayesian math is crazy nuts complicated</li>
+                <li>Simulations are computationally intense</li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * Perhaps that was why it was mostly ignored during much of the 20th century. Computers just weren't good enough.
+            </aside>
         </section>
         <section
 
@@ -1260,12 +1433,12 @@
         </section>
         <section
                 data-transition="fade-in">
-            <h2>Bayes&rsquo; Example</h2>
+            <h2>Wingardium Leviosa</h2>
             <p><em>1 out of every 10,000 people have magical midichlorians. Hogwarts can identify magical children with 99.5% accuracy. An owl just gave you an acceptance letter.</em><br />
-                <span class="fragment"><em><strong>Hypothesis: are you magical?</strong></em></span></p>
+                <span class="fragment"><em><strong>Question: are you magical?</strong></em></span></p>
             <ul class="fragment">
-                <li><span>Likelihood: \(P(\mathcal{D}|\mathcal{H}) = 0.995\)</span> | <span>Prior: \(P(\mathcal{H}) = 0.0001\)</span></li>
-                <li><span>Evidence: \({P(\mathcal{D}) = 0.995 \cdot 0.0001 + 0.005 \cdot 0.9999 = 0.005099}\)</span></li>
+                <li>Likelihood: <span style="font-size: 0.85em;">\(P(\mathcal{D}|\mathcal{H}) = 0.995\)</span> | Prior: <span style="font-size: 0.85em;">\(P(\mathcal{H}) = 0.0001\)</span></li>
+                <li>Evidence: <span style="font-size: 0.85em;">\({P(\mathcal{D}) = 0.995 \cdot 0.0001 + 0.005 \cdot 0.9999 = 0.005099}\)</span></li>
             </ul>
             <div class="math-formula fragment">$$P(\mathcal{H}|\mathcal{D}) = \frac{0.995\times0.0001}{0.005099} = 1.95\%$$</div>
 
@@ -1334,10 +1507,8 @@
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
             </div>
-            <aside class="notes">
-                <ul>
-                    <li>asdf</li>
-                </ul>
+            <aside class="notes" data-markdown>
+                * This table is also saying there's a 98% chance you're a boring Muggle even if you receive a Hogwarts letter.
             </aside>
         </section>
         <section
@@ -1438,7 +1609,85 @@
         <section
                 data-transition="fade-in">
             <div>
-                <h2>Baseball</h2>
+                <h2>Flat Priors</h2>
+                <p><em>Sometimes we don't know the prior distribution.</em></p>
+
+                <ul class="fragment">
+                    <li>Unlike Frequentist Statistics, Michael Bay fans want to model the uncertainty about the probability of events</li>
+                    <li>If we know nothing, we assume a uniform distribution of prior knowledge \(f(\theta)d\theta = 1d\theta\)</li>
+                    <li>Example: we have a mystery coin. The probability \(\theta\) of landing heads can be anything.</li>
+                </ul>
+
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+            <aside class="notes" data-markdown>
+                * Here is one of the weaknesses of Bayesian statistics.
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Coin flips with calculus</h2>
+                <ul>
+                    <li>If the probability of heads can be anything, what is the probability it lands heads?<br />
+                        <span>\({P(\theta>.5)=\int_{.5}^1 f(\theta)d(\theta) = \int_{.5}^1 1 \cdot d(\theta) = \theta \Big|_0^1= \frac{1}{2}}\)</span>
+                    </li>
+                    <li class="fragment">If it lands heads, what is the probability it favors heads?<br />
+                        <span style="font-size: 0.9em;">\({P(\theta>.5|x=1)=\int_{.5}^1 f(\theta|x=1)d(\theta) = \int_{.5}^1 2\theta d\theta = \theta^2 \Big|_{.5}^1= \frac{3}{4}}\)</span>
+                    </li>
+                    <li class="fragment">Surely, there&rsquo;s a better way to do this.</li>
+                </ul>
+
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+            <aside class="notes" data-markdown>
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Hey, coin tosses are binomial!</h2>
+
+                <ul>
+                    <li>Flipping the mystery coin 12 times gets 8 heads</li>
+                    <li>What&rsquo;s the probability of \(k\) heads from \(n\) tosses?</li>
+                </ul>
+
+                <table class="fragment">
+                    <tr style="font-size: 0.75em;">
+                        <th>hypothesis</th>
+                        <th>prior</th>
+                        <th>likelihood</th>
+                        <th>Bayes Numerator</th>
+                        <th>Posterior</th>
+                    </tr>
+                    <tr style="font-size: 0.6em;">
+                        <td>\(\theta\)</td>
+                        <td>\(1 \cdot d\theta\)</td>
+                        <td>\(\begin{pmatrix}12 \\8 \end{pmatrix}\theta^{8}(1-\theta)^{4}\)</td>
+                        <td>\(\begin{pmatrix}12 \\8 \end{pmatrix}\theta^{8}(1-\theta)^{4}d\theta\)</td>
+                        <td>\(c_2\theta^{8}(1-\theta)^{4}d\theta\)</td>
+                    </tr>
+                </table>
+
+                <p class="fragment">We don't know what \(c_2\) is, but we know it&rsquo;s obtained from doing an integral of a binomial function</p>
+
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+            <aside class="notes" data-markdown>
+                * Even for unknown parameters, it's going to be binomial
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Insert Baseball Analogy</h2>
 
                 <ul>
                     <li>A player&rsquo;s batting average is the proportion of hits to total number of plate appearances.</li>
@@ -1480,6 +1729,16 @@
                 data-transition="fade-in">
             <div>
                 <h2>Conjugate Priors</h2>
+                <p><em>If the posterior is the same probability distribution family as the the prior, then they are conjugate distributions</em></p>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Comparing 2 Betas</h2>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
@@ -1489,7 +1748,12 @@
                 data-transition="fade-in">
             <div>
                 <h2>Monte Carlo Simulations</h2>
-                <p><em>Ain't nobody got time to solve integrals.</em></p>
+                <ul>
+                    <li>Use repeated random numbers to solve math problems where the analytical solution isn&rsquo;t known, or intractable.</li>
+                    <li class="fragment">Often used to solve stupid integrals</li>
+                    <li class="fragment">In other words, we can solve very complicated Bayesian posteriors with code!</li>
+                    <li class="fragment">Have to be careful because they can get computationally intensive</li>
+                </ul>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
@@ -1498,7 +1762,44 @@
         <section
                 data-transition="fade-in">
             <div>
-                <h1>3. Multivariate Testing</h1>
+                <h2>Monte Carlo A/B</h2>
+                <pre class="fat-code"><code data-trim data-noescape>
+from __future__ import division
+from scipy.stats import beta
+import numpy as np
+
+sims = 100000 # number of simulations
+p_alpha, p_n = 40, 200 # prior
+p_beta = p_n - p_alpha
+c_alpha, c_n = 35, 200 # control
+c_beta = c_n - c_alpha
+t_alpha, t_n = 54, 200 #treatment
+t_beta = t_n - t_alpha
+
+control = np.array(beta.rvs(p_alpha + c_alpha, p_beta + c_beta, size=sims))
+treatment = np.array(beta.rvs(p_alpha + t_alpha, p_beta + t_beta, size=sims))
+
+mc_treatment_wins = sum((treatment - control) > 0)
+treatment_better_prob = mc_treatment_wins/simulations
+print(treatment_better_prob)
+                </code></pre>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h1><span style="text-decoration: line-through;">3. Multivariate Testing</span></h1>
+                <p><em>Sorry, this a whole talk onto itself.</em></p>
+
+                <ul>
+                    <li>Chi-Squared Tests</li>
+                    <li>Analysis of Covariance</li>
+                    <li>Multilevel Modeling</li>
+                    <li>Markov Chain Monte Carlo</li>
+                </ul>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">4. Multivariate Testing</p>
@@ -1558,8 +1859,10 @@
     // - https://github.com/hakimel/reveal.js#configuration
     // - https://github.com/hakimel/reveal.js#dependencies
     Reveal.initialize({
+        slideNumber: 'c/t',
+        showSlideNumber: 'speaker',
         controls: false,
-        progress: true,
+        progress: false,
         history: true,
         autoPlayMedia: null,
 //        center: true,
