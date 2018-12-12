@@ -44,14 +44,14 @@
                 data-transition="fade-in">
             <h2>Kinds of A/B Tests</h2>
             <ul>
-                <li class="fragment">Split Tests, a.k.a. <strong>Hypothesis Testing</strong></li>
+                <li class="fragment">Split Tests, a.k.a. <strong>Hpothesis Testing</strong></li>
                 <li class="fragment"><strong>Multivariate Tests</strong>
                     <ul>
-                        <li><em>Which really aren't A/B Tests, but get grouped in with them anyway</em></li>
+                        <li><em>Which really aren't A/B tests, but get grouped in with them anyway</em></li>
                     </ul>
                 </li>
                 <li class="fragment"><strong>A/A Tests</strong> - to make sure the service isn&rsquo;t fake news</li>
-                <li class="fragment">Michael Bayesian Craziness, a.k.a. <strong>Simulations</strong></li>
+                <li class="fragment">Bayesian craziness, a.k.a. <strong>Simulations</strong></li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">Introduction</p>
@@ -70,6 +70,8 @@
                 <p class="footer-text">Introduction</p>
             </div>
             <aside class="notes" data-markdown>
+                * **Improves User Experience** - we pick the variant that users prefer
+                * **Accelerates Innovation** - instead of wondering for ourselves which variant is better, we just test, and then have data to back up our choices
                 * Do you know that part on Amazon where it says, "people who bought this item also bought...."
                 * That part is the result of an A/B Test, implemented by a guy named Greg Linden.
                 * Actually, marketing senior vice president was very against it because he thought adding more additional information would overload the user when the use should be focused on checking out.
@@ -91,6 +93,10 @@
             <div class="slide-footer-left">
                 <p class="footer-text">Introduction</p>
             </div>
+            <aside class="notes" data-markdown>
+                * If the test is too small, the data might just be noise.
+                * If the test is too big, we will move too slowly
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
@@ -102,6 +108,7 @@
                 <li><span style="text-decoration: line-through;">Multivariate Testing</span></li>
                 <li>Implementation</li>
                 <li>Faults in A/B Tests</li>
+                <li>A picture of a red panda</li>
             </ol>
             <div class="slide-footer-left">
                 <p class="footer-text">Introduction</p>
@@ -206,7 +213,7 @@
                 </li>
                 <li>
                     <strong>Multiplication Rule</strong>
-                    <span class="math-formula">\(P(A \cap B) = P(A|B) * P(B)\)</span>
+                    <span class="math-formula">\(P(A \cap B) = P(A|B) \cdot P(B)\)</span>
                 </li>
                 <li>
                     <p><strong>Mutually Exclusive</strong></p>
@@ -1846,6 +1853,52 @@
                 <h2>Conjugate Priors</h2>
                 <p><em>If the posterior is the same probability distribution family as the the prior, then they are
                     conjugate distributions</em></p>
+                <ul>
+                    <li>If the likelihood function is binomial, and the prior distribution is beta, then the posterior is also beta.</li>
+                    <li>Fewer integrals, hooray!</li>
+                </ul>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Beta Constants</h2>
+
+                <table style="font-size: 0.65em;margin: 1em 0;">
+                    <tr>
+                        <th>hypothesis</th>
+                        <th>prior</th>
+                        <th>likelihood</th>
+                        <th>Bayes Numerator</th>
+                        <th>Posterior</th>
+                    </tr>
+                    <tr>
+                        <td>\(\theta\)</td>
+                        <td>\(x\)</td>
+                        <td>\(Beta(a, b)\)</td>
+                        <td>\(Bin(n + m,\theta)\)</td>
+                        <td>\(Beta(a + n,b+m)\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\theta\)</td>
+                        <td>\(x\)</td>
+                        <td>\(c_1\theta^{a-1}(1-\theta)^{b-1}d\theta\)</td>
+                        <td>\(c_2\theta^{x}(1-\theta)^{N-x}\)</td>
+                        <td>\(c_3\theta^{a+x-1}(1-\theta)^{b+N-x-1}\)</td>
+                    </tr>
+                </table>
+
+                <ul>
+                    <li>Prior
+                        <span>\(c_1 = \frac{(a+b-1)!}{(a-1)!(b-1)!}\)</span></li>
+                    <li>Likelihood
+                        <span>\({c_2 = \begin{pmatrix}N \\x \end{pmatrix} = \frac{N!}{x!(N-x)!}}\)</span></li>
+                    <li>Posterior Constant
+                        <span>\(c_3 = \frac{(a+b+N-1)!}{(a+x-1)!(b+N-x-1)!}\)</span></li>
+                </ul>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
@@ -1861,12 +1914,19 @@
                     <p><em>Then the probability that \(p_T\) is better than \(p_C\) is:</em></p>
                     <span style="font-size: 0.8em;">$${\rm Pr}(p_T > p_C) = \int_0^1 \int_{p_C}^1 \frac{p_C^{\alpha_C-1}(1-p_C)^{\beta_C-1}}{Beta(\alpha_C, \beta_C)} \frac{{p_T}^{\alpha_T-1}(1-p_T)^{\beta_T-1}}{Beta(\alpha_T, \beta_T)} dp_T dp_C$$</span>
                     <!--<span>$${P(p_T > p_C) = \sum_{i=0}^{\alpha_T-1} \frac{Beta(\alpha_C+i,\beta_T+\beta_C)}{(\beta_T+i)Beta(1+i,\beta_T)Beta(\alpha_C,\beta_C)}}$$</span>-->
-                    <p><em>A &ldquo;joint posterior&rdquo; requires a double integral. BOOOO.</em></p>
+                    <p><em>They call it <strong>&ldquo;Asymptotic Expansion.&rdquo;</strong> Uh huh, cool story.</em></p>
                 </div>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * To get total probability that the true probability of the Treatment is greater than the true probability of the Control, we inegrate the join distribution over all the values for which the probability of Treatment is greater than the probability of Control.
+                * One of the neat advantages of asymptotic expansion, or so I'm told, is that it allows us to do two things
+                * know when to stop a test when there's obviously a clear winner
+                * calculate the loss function, which is a measure of uncertainty from stopping a test prematurely and getting the wrong answer
+                * Some day, I'd love to understand how to calculate this, but we're a room full of software engineers, which means we're lazy.
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
@@ -1885,6 +1945,11 @@
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * show how to calculate pi
+                * generate a million [x,y] tuples where x and y are between 0 and 1. then graph it
+                * Pythagorean rule \\(A^2 + B^2 = C^2\\)
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
@@ -2079,15 +2144,82 @@
             <div>
                 <h2>Allocation</h2>
                 <p><em>Which users see what?</em></p>
+                <ul>
+                    <li class="fragment"><strong>Batch</strong> - resolve to a fixed and known set of users
+                        <ul>
+                            <li>Relatively easier to implement</li>
+                            <li>What about new users?</li>
+                            <li>Will they even see the feature?</li>
+                        </ul>
+                    </li>
+                    <li class="fragment"><strong>Real Time</strong> - eligibility criteria along with interaction
+                        <ul>
+                            <li>Split users on strata (e.g. demographics)</li>
+                            <li>Latency a real concern</li>
+                            <li>Can't estimate length of test</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">5. Implementation</p>
             </div>
+            <aside class="notes" data-markdown>
+                * **Batch Allocation** - resolve to a fixed and known set of users, very straightforward
+                  * Decide users with last names A through M see Control, and N-Z see Treatment
+                  * Cons:
+                  * can't allocate new users
+                  * can't allocate based on real-time user behavior
+                  * can't guarantee the user will ever access the feature being tested - so how much of the data is even useful?
+                * **Real Time allocation** - user is eligible if they meet certain criteria as they interact with the application
+                  * split users on user classification, or device, or geographic region
+                  * cons: latency from making additional calls.
+                  * solution run call in parallel when doing something else before
+                  * Can't estimate how long it will take to have sufficient data
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
             <div>
-                <h2>A Typical Workflow</h2>
+                <h2>A/B Testing Workflow</h2>
+
+                <ol>
+                    <li>User accesses front end, which calls the API with a session and user info payload</li>
+                    <li>The backend calls the A/B testing service</li>
+                    <li>A/B services calls DB and retrieves all tests allocated</li>
+                    <li>If using real-time allocation, determines correct one</li>
+                    <li>Respond to app backend with test info</li>
+                    <li>Deliver to front end whatever is necessary</li>
+                </ol>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">5. Implementation</p>
+            </div>
+            <aside class="notes" data-markdown>
+                * Special thanks to Netflix
+
+                1. User accesses a feature on the front end
+                2. The front end calls the main application API, delivering a payload containing session and user information to the main appplication backend
+                3. The back end calls the A/B testing service
+                * The service hits the A/B database retrieves all tests to which this user is already allocated
+                * For users with batch allocation, the appropriate test is known
+                * Otherwise the server determines the correct (real time) allocation
+                5. A/B service passes the test info to the backend
+                6. With the test info, the backend fetches and delivers whatever media is necessary back to the user front-end
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>A/B Testing Backend</h2>
+
+                <ul>
+                    <li>Which users are in which tests at what time?</li>
+                    <li>Make sure each user gets sees consistent experience</li>
+                    <li>Prevent users from being part of antagonistic tests</li>
+                    <li>Have some good caching</li>
+                    <li>Feed data to a separate front end for internal analysis</li>
+                </ul>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">5. Implementation</p>
@@ -2097,6 +2229,26 @@
                 data-transition="fade-in">
             <div>
                 <h2>The front end</h2>
+
+                <pre class="fat-code"><code>const myComponent = ({}) => {
+    return (
+        <Experiment ref="experiment" name="My Example">
+            <Variant name="control">
+                <button>Click Me</button>
+            </Variant>
+            <Variant name="treatment">
+                <button>Click Me</button>
+            </Variant>
+        </Experiment>
+    );
+};
+emitter.testListener((experimentName, variantName) => {
+    // record test initiation for experimentName, variantName
+});
+emitter.conversionListener((experimentName, variantName) => {
+    // record event for experimentName, variantName
+});
+                </code></pre>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">5. Implementation</p>
@@ -2106,6 +2258,21 @@
                 data-transition="fade-in">
             <div>
                 <h2>Rules Engine</h2>
+                <p><em>Two variants is easy, what about multivariate testing?</em></p>
+
+                <ul>
+                    <li>A long chain of conditionals inside the components (to determine which UI to render for whom) puts too much unnecessary logic into rendering.</li>
+                    <li class="fragment"><strong>Production Rule System</strong> - a set of rules with conditions + actions that can be evaluated in any order
+                        <ul>
+                            <li>Improves template legibility by abstracting rules out to a separate file, and encourages re-use</li>
+                        </ul>
+                    </li>
+                </ul>
+                <aside class="notes" data-markdown>
+                    * Suppose we are testing both the page title, form buttons, and help text on a view. We could easily have half a dozen different variations.
+                    * We'll need a way to nest all those conditionals, for the different versions, and a way to identify which user sees which
+                    * A rules engine, also known as a Production Rule System is something that Martin Fowler is a huge fan of.
+                </aside>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">5. Implementation</p>
@@ -2115,6 +2282,9 @@
                 data-transition="fade-in">
             <div>
                 <h1>5.Faults in A/B Tests</h1>
+                <p><em>This is the part where I make my sales pitch look bad.</em></p>
+                <aside class="notes" data-markdown>
+                </aside>
             </div>
         </section>
         <section
@@ -2180,6 +2350,9 @@
                 data-transition="fade-in">
             <div class="full-page-background"
                  style="background-image: url('custom/media/xkcd-882.png');height: 680px;"></div>
+            <div class="slide-footer-left">
+                <p class="footer-text">6. Faults in A/B Tests</p>
+            </div>
             <aside class="notes" data-markdown>
                 * The joke is they are running 20 tests with a p-value of 0.05. So that means they are likely to get 1 false positive.
             </aside>
@@ -2209,10 +2382,21 @@
                 data-transition="fade-in">
             <div>
                 <h2>Regression to the mean</h2>
+                <ul>
+                    <li>Suppose you had a bunch of users use coin flips to answer a T/F test, and you picked the users with the highest scores.</li>
+                    <li>Give them the same T/F test again and have them pick answers by coin flip. Would they still score highly?</li>
+                    <li class="fragment">If you retest a bunch of winning A/B tests again to find the "best of the best,&rdquo; you&rsquo;ll get false negatives.</li>
+                </ul>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">6. Faults in A/B Tests</p>
             </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <h2>The End</h2>
+            <img src="custom/media/red-panda.jpg" style="height: 45vh;"/>
+            <p>Is it lunch yet? Who's hungry?</p>
         </section>
     </div>
 </div>
