@@ -1855,6 +1855,14 @@
                 data-transition="fade-in">
             <div>
                 <h2>Comparing 2 Betas</h2>
+                <p><em>Treatment \((T)\) and Control \((C)\) are 2 beta distributions.</em></p>
+                <span>$$p_C \sim Beta(\alpha_C,\beta_C), p_T \sim Beta(\alpha_T,\beta_T)$$</span>
+                <div class="fragment">
+                    <p><em>Then the probability that \(p_T\) is better than \(p_C\) is:</em></p>
+                    <span style="font-size: 0.8em;">$${\rm Pr}(p_T > p_C) = \int_0^1 \int_{p_C}^1 \frac{p_C^{\alpha_C-1}(1-p_C)^{\beta_C-1}}{Beta(\alpha_C, \beta_C)} \frac{{p_T}^{\alpha_T-1}(1-p_T)^{\beta_T-1}}{Beta(\alpha_T, \beta_T)} dp_T dp_C$$</span>
+                    <!--<span>$${P(p_T > p_C) = \sum_{i=0}^{\alpha_T-1} \frac{Beta(\alpha_C+i,\beta_T+\beta_C)}{(\beta_T+i)Beta(1+i,\beta_T)Beta(\alpha_C,\beta_C)}}$$</span>-->
+                    <p><em>A &ldquo;joint posterior&rdquo; requires a double integral. BOOOO.</em></p>
+                </div>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
@@ -1873,6 +1881,30 @@
                     </li>
                     <li class="fragment">Have to be careful because they can get computationally intensive</li>
                 </ul>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">3. Bayesian Statistics</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Monte Carlo pseudo code</h2>
+                <pre class="fat-code"><code data-trim data-noescape>
+                    // Observing the current app for 200 users (prior)
+                    // Prior distribution is Beta(40,160)
+                    // Initiate an A/B Test
+                    // Control group got 35 clicks from 200 users (165 misses)
+                    // Treatment group got 54 clicks from 200 users (146 misses)
+                    // Simulate 100,000 Monte Carlo runs
+
+                    simulations = 100000;
+                    controlSimulation = beta(40 + 35, 160 + 165)(random(0,1)) × simulations;
+                    treatmentSimulation = beta(40 + 54, 160 + 146)(random(0,1)) × simulations;
+
+                    treatmentWins = total(array(controlSimulation) - array(treatmentSimulation));
+                    treatmentWinProbability = treatmentWins / simulationsCount;
+                </code></pre>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
@@ -1931,6 +1963,11 @@
                 data-transition="fade-in">
             <div>
                 <h1>5. Implement- ation</h1>
+                <ul>
+                    <li>We should totally do it.</li>
+                    <li>(Sorry, this section will be very high level.)</li>
+                    <li>Perhaps an A/B Testing Part II talk?</li>
+                </ul>
             </div>
         </section>
         <section
