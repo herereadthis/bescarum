@@ -63,11 +63,19 @@
             <ul>
                 <li>Improves User Experience</li>
                 <li>Accelerates Innovation</li>
-                <li>CASH MONEY $$$ SYNERGY ROI BLOCKCHAIN</li>
+                <li><strong style="font-family: didot;">CASH MONEY $$$ SYNERGY ROI</strong></li>
+                <li><strong style="font-family: didot;">THE BLOCKCHAIN</strong></li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">Introduction</p>
             </div>
+            <aside class="notes" data-markdown>
+                * Do you know that part on Amazon where it says, "people who bought this item also bought...."
+                * That part is the result of an A/B Test, implemented by a guy named Greg Linden.
+                * Actually, marketing senior vice president was very against it because he thought adding more additional information would overload the user when the use should be focused on checking out.
+                * So Greg Linden stuck the code in there in an A/B Test
+                * It turns out that implementing that feature made them a ton of money
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
@@ -99,9 +107,12 @@
                 <p class="footer-text">Introduction</p>
             </div>
             <aside class="notes" data-markdown>
-                * Sorry, I'm gonna skip multivariate testing (or at least the math for it) because it is nuts complicated
-                * Everything that makes A/B testing complicated is orders of magnitude crazier when you introduce multi-dimensional parameters
-                * Towards the end of part of Bayesian statics I'll mention briefly a family of tools called Markov Chain Monte Carlo simulations, which is one of the major elements of multivariate testing.
+                * Sorry, I'm gonna skip multivariate testing (or at least the math for it) because it is nuts
+                complicated
+                * Everything that makes A/B testing complicated is orders of magnitude crazier when you introduce
+                multi-dimensional parameters
+                * Towards the end of part of Bayesian statics I'll mention briefly a family of tools called Markov Chain
+                Monte Carlo simulations, which is one of the major elements of multivariate testing.
             </aside>
         </section>
         <section
@@ -275,7 +286,9 @@
                 <h2>Discrete Random Variables</h2>
                 <ul>
                     <li><strong>Random Variables</strong> - variable with a value determined by a chance event.</li>
-                    <li>A <strong>discrete sample space</strong> \(\Omega\) is a finite set of outcomes \(\{\omega_1, \omega_2...*\}\). The probability of outcome \(\omega\) is \(P(\omega)\).</li>
+                    <li>A <strong>discrete sample space</strong> \(\Omega\) is a finite set of outcomes \(\{\omega_1,
+                        \omega_2...*\}\). The probability of outcome \(\omega\) is \(P(\omega)\).
+                    </li>
                 </ul>
             </div>
             <div class="slide-footer-left">
@@ -340,8 +353,10 @@
             </div>
             <aside class="notes" data-markdown>
                 * You can often determine which one you need by listening to the question.
-                * If someone asks what is the probability of getting exactly blah heads in so many coin flips, it's a pmf
-                * If someone asks what is the probability of getting at least blah head in so many coin flips, it's a cdf
+                * If someone asks what is the probability of getting exactly blah heads in so many coin flips, it's a
+                pmf
+                * If someone asks what is the probability of getting at least blah head in so many coin flips, it's a
+                cdf
             </aside>
         </section>
         <section
@@ -446,9 +461,10 @@
             <div data-markdown>
                 ## Bernoulli Trial
 
-                * An experiment that only has two possible results - *success* and *failure* - is a **Bernoulli Trial** if:
-                  * The results are mutually exclusive,
-                  * The probability of these two results do not change each time the experiment is done
+                * An experiment that only has two possible results - *success* and *failure* - is a **Bernoulli Trial**
+                if:
+                * The results are mutually exclusive,
+                * The probability of these two results do not change each time the experiment is done
             </div>
             <span class="math-formula">$$X =\begin{cases}1 & success\\0 & failure\end{cases}$$</span>
             <div class="slide-footer-left">
@@ -460,16 +476,16 @@
             <div>
                 <h2>Bernoulli Distribution</h2>
                 <ul>
-                    <li>Success:<br />
+                    <li>Success:<br/>
                         <span class="math-formula">\(P(X = 1) = p\)</span>
                     </li>
-                    <li>Failure:<br />
+                    <li>Failure:<br/>
                         <span class="math-formula">\(P(X = 0) = 1-p\)</span>
                     </li>
-                    <li>Expected Value:<br />
+                    <li>Expected Value:<br/>
                         <span class="math-formula">\(E(X) = \mu = 0(1-p) + 1(p) = p\)</span>
                     </li>
-                    <li>Variance:<br />
+                    <li>Variance:<br/>
                         <span class="math-formula">\(\sigma_x^2 = p(1-p)\)</span>
                     </li>
                 </ul>
@@ -479,7 +495,9 @@
             </div>
             <aside class="notes">
                 <ul>
-                    <li>If we say a success is rolling a die for 3 or higher, then the probability of success is 0.67, and the probability of failure is 0.33.</li>
+                    <li>If we say a success is rolling a die for 3 or higher, then the probability of success is 0.67,
+                        and the probability of failure is 0.33.
+                    </li>
                 </ul>
             </aside>
         </section>
@@ -489,11 +507,13 @@
                 <h2>Binomial Distribution</h2>
                 <p><em>Lots and lots of Bernoulli Trials</em></p>
                 <ul class="fragment">
-                    <li><strong>Binomial Coefficient</strong> - the number of ways to &ldquo;choose&rdquo; \(k\) unordered outcomes from \(n\) possibilities
+                    <li><strong>Binomial Coefficient</strong> - the number of ways to &ldquo;choose&rdquo; \(k\)
+                        unordered outcomes from \(n\) possibilities
                         <span class="math-formula">$$_nC_k =  \begin{pmatrix}n \\k \end{pmatrix} = \frac{n!}{k!(n - k)!}$$</span>
                     </li>
                     <li class="fragment">Binomial probability mass function:
-                        <span class="math-formula">$$P(X = k) = \begin{pmatrix}n \\k \end{pmatrix}p^{k}(1-p)^{n-k}$$</span></li>
+                        <span class="math-formula">$$P(X = k) = \begin{pmatrix}n \\k \end{pmatrix}p^{k}(1-p)^{n-k}$$</span>
+                    </li>
                 </ul>
             </div>
             <div class="slide-footer-left">
@@ -502,7 +522,8 @@
             <aside class="notes" data-markdown>
                 * A bernoulli trial is one user coming to your website, he either buys or he doesn't buy
                 * A binomial distribution is 1000 users coming to your site. Some buy and some don't buy
-                * For example, how many ways can you choose 2 heads from flipping 4 coins? it would be 4! divided by 2! times 2! which equals 6
+                * For example, how many ways can you choose 2 heads from flipping 4 coins? it would be 4! divided by 2!
+                times 2! which equals 6
             </aside>
         </section>
         <section
@@ -510,13 +531,13 @@
             <div>
                 <h2>Binomial Math</h2>
                 <ul>
-                    <li>Mean:<br />
+                    <li>Mean:<br/>
                         <span class="math-formula">\(\mu_x = np\)</span>
                     </li>
-                    <li>Variance:<br />
+                    <li>Variance:<br/>
                         <span class="math-formula">\(\sigma_x^2 = np(1-p)\)</span>
                     </li>
-                    <li>Standard deviation:<br />
+                    <li>Standard deviation:<br/>
                         <span class="math-formula">\(\sigma_x = \sqrt{np(1-p)}\)</span>
                     </li>
                 </ul>
@@ -532,52 +553,52 @@
                 data-transition="fade-in">
             <div>
                 <h2>Binomial Coins</h2>
-                <p><em>What is the probability getting 3 heads in 5 coin flips?</em></p>
+                <p><em>What is the probability of getting 3 heads in 5 coin flips?</em></p>
                 <span class="math-formula fragment">$${P(X = 3) = \begin{pmatrix}5 \\3 \end{pmatrix}.5^{3}(1-0.5)^2 = 31.25\%}$$</span>
                 <p class="fragment"><em>What is the cdf of 3 out of 5?</em></p>
 
-                    <table class="fragment" style="font-size: 75%;">
-                        <tr>
-                            <th>Value</th>
-                            <th>\(a\)</th>
-                            <th>0</th>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
-                            <th>4</th>
-                            <th>5</th>
-                        </tr>
-                        <tr>
-                            <td>pmf</td>
-                            <td>\(p(a)\)</td>
-                            <td>\(p^5\)</td>
-                            <td>\(5p^5\)</td>
-                            <td>\(10p^5\)</td>
-                            <td>\(10p^5\)</td>
-                            <td>\(5p^5\)</td>
-                            <td>\(p^5\)</td>
-                        </tr>
-                        <tr>
-                            <td>pmf</td>
-                            <td>\(p(a)\)</td>
-                            <td>\(0.03125\)</td>
-                            <td>\(0.15625\)</td>
-                            <td>\(0.3125\)</td>
-                            <td>\(0.3125\)</td>
-                            <td>\(0.15625\)</td>
-                            <td>\(0.03125\)</td>
-                        </tr>
-                        <tr>
-                            <td>cdf</td>
-                            <td>\(F(a)\)</td>
-                            <td>\(0.03125\)</td>
-                            <td>\(0.1875\)</td>
-                            <td>\(0.5\)</td>
-                            <td>\(0.8125\)</td>
-                            <td>\(0.99875\)</td>
-                            <td>\(1\)</td>
-                        </tr>
-                    </table>
+                <table class="fragment" style="font-size: 75%;">
+                    <tr>
+                        <th>Value</th>
+                        <th>\(a\)</th>
+                        <th>0</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                    </tr>
+                    <tr>
+                        <td>pmf</td>
+                        <td>\(p(a)\)</td>
+                        <td>\(p^5\)</td>
+                        <td>\(5p^5\)</td>
+                        <td>\(10p^5\)</td>
+                        <td>\(10p^5\)</td>
+                        <td>\(5p^5\)</td>
+                        <td>\(p^5\)</td>
+                    </tr>
+                    <tr>
+                        <td>pmf</td>
+                        <td>\(p(a)\)</td>
+                        <td>\(0.03125\)</td>
+                        <td>\(0.15625\)</td>
+                        <td>\(0.3125\)</td>
+                        <td>\(0.3125\)</td>
+                        <td>\(0.15625\)</td>
+                        <td>\(0.03125\)</td>
+                    </tr>
+                    <tr>
+                        <td>cdf</td>
+                        <td>\(F(a)\)</td>
+                        <td>\(0.03125\)</td>
+                        <td>\(0.1875\)</td>
+                        <td>\(0.5\)</td>
+                        <td>\(0.8125\)</td>
+                        <td>\(0.99875\)</td>
+                        <td>\(1\)</td>
+                    </tr>
+                </table>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
@@ -599,14 +620,16 @@
             </div>
             <aside class="notes">
                 <ul>
-                    <li>Like the coin flipping table, we can add up all the probabilites of 0 students, 1 student, 2 students but that takes forever</li>
+                    <li>Like the coin flipping table, we can add up all the probabilites of 0 students, 1 student, 2
+                        students but that takes forever
+                    </li>
                     <li>Instead take advantage that the sum of all probabilities always equal 1</li>
                     <li>It's faster do 1 minus the probabilities of 20 students and 19 students</li>
                 </ul>
             </aside>
         </section>
         <section
-            data-transition="fade-in">
+                data-transition="fade-in">
             <div>
                 <h2>Binomial Views With Code</h2>
                 <p><em>Ain&rsquo;t nobody got time to math.</em></p>
@@ -636,7 +659,8 @@
                 <h2>Continuous Random Variables</h2>
 
                 <ul>
-                    <li>A random variable \(X\) is <strong>continuous</strong> if there is a function \(f(x)\) such that for any \(c \le d\), the probability density function (pdf) is
+                    <li>A random variable \(X\) is <strong>continuous</strong> if there is a function \(f(x)\) such that
+                        for any \(c \le d\), the probability density function (pdf) is
                         <span class="math-formula">$$P(c \leq d) = \int_c^d f(x)dx$$</span>
                         <span class="math-formula">$${P(-\infty \leq X \leq \infty) = \int_{-\infty}^\infty f(x) dx = 1}$$</span>
                     </li>
@@ -647,7 +671,9 @@
             </div>
             <aside class="notes">
                 <ul>
-                    <li>So note that when dealing with discrete distributions we are looking for a probability mass function.</li>
+                    <li>So note that when dealing with discrete distributions we are looking for a probability mass
+                        function.
+                    </li>
                     <li>For continuous distribution, we are looking for a probability density function.</li>
                     <li>Mass is the integral of density</li>
                     <li>If you take the integral of the pdf at all vales, then the area of all probability is 1</li>
@@ -779,9 +805,11 @@
                 ## Inferential Statistics
 
 
-                * **Parameter estimation** - some value that determines the properties of the distribution, such as \\(\mu\\) or \\(\sigma\\)
+                * **Parameter estimation** - some value that determines the properties of the distribution, such as
+                \\(\mu\\) or \\(\sigma\\)
                 * **Data Prediction** - use information about sample to predict a random selection
-                * **Model comparison** - selecting a model which best explains the observed data, something that postulates the relationship between factors and the data
+                * **Model comparison** - selecting a model which best explains the observed data, something that
+                postulates the relationship between factors and the data
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">1. Probability & Statistics</p>
@@ -797,7 +825,8 @@
                 <span class="math-formula">$$\lim_{n \rightarrow \infty} P(| \overline{X} - \mu | < a) = 1$$</span>
 
                 <ul>
-                    <li>The bigger the sample, the closer the mean and variance of the sample gets to the population</li>
+                    <li>The bigger the sample, the closer the mean and variance of the sample gets to the population
+                    </li>
                     <li>The means of many samples is a normal distribution</li>
                     <li>The means of those means approximates the mean of the population</li>
                 </ul>
@@ -808,7 +837,10 @@
             <aside class="notes">
                 <ul>
                     <li>The normal distribution just doesn't happen everywhere, contrary to what we think</li>
-                    <li>Suppose you're researching penguins. Today you grab 10 penguins and get their average weight. Tomorrow you grab another 10 penguins and get their average weight. You do this over an over again and if you graph all those averages, you get a normal distribution.</li>
+                    <li>Suppose you're researching penguins. Today you grab 10 penguins and get their average weight.
+                        Tomorrow you grab another 10 penguins and get their average weight. You do this over an over
+                        again and if you graph all those averages, you get a normal distribution.
+                    </li>
                     <li>Experimentation is what makes the normal distribution</li>
                 </ul>
             </aside>
@@ -865,7 +897,7 @@
         </section>
         <section
                 data-transition="fade-in">
-            <h2>Theory Time!<br />Bayesian vs. Frequentist</h2>
+            <h2>Theory Time!<br/>Bayesian vs. Frequentist</h2>
             <p><em>Statistics require making lots of inferences</em></p>
             <ul>
                 <li class="fragment"><strong>Bayesian</strong>: probability is subjective and deduced from prior
@@ -911,7 +943,9 @@
                 <p><em>A coin is flipped 100 times and it lands heads 60 times.</em></p>
 
                 <ul>
-                    <li><strong>Frequentist</strong>: What's the probability of getting 60 or more heads \(P(X > 59)\) if the coin is fair?</li>
+                    <li><strong>Frequentist</strong>: What's the probability of getting 60 or more heads \(P(X > 59)\)
+                        if the coin is fair?
+                    </li>
                     <li><strong>Bayesian</strong>: Is the coin fair?</li>
                 </ul>
             </div>
@@ -925,8 +959,12 @@
                 <h2>What about A/B Testing?</h2>
 
                 <ul>
-                    <li><strong>Frequentist</strong>: Do the results of the new version support rejecting the old version?</li>
-                    <li><strong>Bayesian</strong>: What's the probability of the new version being better than the old version?</li>
+                    <li><strong>Frequentist</strong>: Do the results of the new variant support rejecting the current
+                        variant?
+                    </li>
+                    <li><strong>Bayesian</strong>: What's the probability the new variant is better than the current
+                        variant?
+                    </li>
                 </ul>
             </div>
             <div class="slide-footer-left">
@@ -934,11 +972,12 @@
             </div>
         </section>
         <section
-                data-transition="fade-in"
-                data-background-image="custom/media/xkcd-1132.png"
-                data-background-repeat="no-repeat"
-                data-background-size="contain"
-                style="margin: 10rem">
+                data-transition="fade-in">
+            <div class="full-page-background"
+                 style="background-image: url('custom/media/xkcd-1132.png');height: 680px;"></div>
+            <aside class="notes" data-markdown>
+                * Of course there's a relevant XKCD. This one is number 1132
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
@@ -954,7 +993,8 @@
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
             <aside class="notes" data-markdown>
-                * Whenever you hear some study where half the participants were assigned the drug, and the other half were taking the placebo, then you are likely reading about a study using Frequentist tools
+                * Whenever you hear some study where half the participants were assigned the drug, and the other half
+                were taking the placebo, then you are likely reading about a study using Frequentist tools
             </aside>
         </section>
         <section
@@ -971,25 +1011,30 @@
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
             <aside class="notes" data-markdown>
-                * Researchers will typically assign a 5% significance level, which is another way of saying 5% of the time, you will see a false positive.
+                * Researchers will typically assign a 5% significance level, which is another way of saying 5% of the
+                time, you will see a false positive.
                 * It's another way of admitting 1 in every 20 studies is wrong.
             </aside>
         </section>
         <section
                 data-transition="fade-in">
             <h2>R. A. Fisher</h2>
-            <img src="custom/media/fisher.jpg" style="height: 45vh;" />
+            <img src="custom/media/fisher.jpg" style="height: 45vh;"/>
             <p>A guy wearing a college professor costume</p>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
             <aside class="notes" data-markdown>
                 * R.A. Fisher is known as the father of modern statistics
-                * He may get too much credit versus other statisticians such as William Gosset, but he's still the go-to guy when you think about hypothesis testing and p-values
+                * He may get too much credit versus other statisticians such as William Gosset, but he's still the go-to
+                guy when you think about hypothesis testing and p-values
                 * He read some books on Bayesian statistics and thought it was garbage.
-                * His career was spent research genetics, and the tools he developed to analyze and model his testing grew into modern statistics.
-                * He published "The Design of Experiments" in 1935 which laid the foundations for modern experimental design
-                * He wasn't all cool. He was a strong believer in eugenics and used statistics to show there were difference between races
+                * His career was spent research genetics, and the tools he developed to analyze and model his testing
+                grew into modern statistics.
+                * He published "The Design of Experiments" in 1935 which laid the foundations for modern experimental
+                design
+                * He wasn't all cool. He was a strong believer in eugenics and used statistics to show there were
+                difference between races
 
             </aside>
         </section>
@@ -998,19 +1043,25 @@
             <h2>Null Hypothesis Significance Testing</h2>
 
             <ul>
-                <li class="fragment"><strong>Null Hypothesis</strong> \(H_0\) - Currently accepted value for a parameter.</li>
+                <li class="fragment"><strong>Null Hypothesis</strong> \(H_0\) - Currently accepted value for a
+                    parameter.
+                </li>
                 <li class="fragment"><strong>Alternate Hypothesis</strong> \(H_A\) - Claim to be tested</li>
                 <li class="fragment">\(H_0\) and \(H_A\) are opposites. They must represent all possible answers.</li>
-                <li class="fragment"><strong>Neyman-Pearson Paradigm</strong> - If the data is well outside the what is expected under the null hypothesis, then reject the null hypothesis.</li>
+                <li class="fragment"><strong>Neyman-Pearson Paradigm</strong> - If the data is well outside the what is
+                    expected under the null hypothesis, then reject the null hypothesis.
+                </li>
             </ul>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
             </div>
             <aside class="notes" data-markdown>
-                * **Alternate Hypothesis**  is also called &ldquo;research hypothesis&rdquo;
-                * In A/B Testing, the null hypothesis is called the control, the Alternate hypothesis is called the Treatment
-                * The most important thing here, and the thing that everyone gets wrong - you are not trying to prove your alternate hypothesis. You are trying to prove the status quo.
+                * **Alternate Hypothesis** is also called &ldquo;research hypothesis&rdquo;
+                * In A/B Testing, the null hypothesis is called the control, the Alternate hypothesis is called the
+                Treatment
+                * The most important thing here, and the thing that everyone gets wrong - you are not trying to prove
+                your alternate hypothesis. You are trying to prove the status quo.
                 * It's very counter-intuitive
             </aside>
         </section>
@@ -1024,7 +1075,8 @@
                 * \\(H_0\\) - defendant is innocent
                 * \\(H_A\\) - defendant is guilty
                 * If evidence proves otherwise, then we will ***reject*** the null hypothesis (innocent verdict)
-                * If there isn't evidence to prove otherwise, then we will ***fail to reject*** the null hypothesis (not guilty)
+                * If there isn't evidence to prove otherwise, then we will ***fail to reject*** the null hypothesis (not
+                guilty)
 
             </div>
             <div class="slide-footer-left">
@@ -1126,10 +1178,15 @@
                 data-transition="fade-in">
             <h2>Significance vs Power</h2>
             <ul>
-                <li><strong>Significance Level</strong> \(\alpha\) - probability of rejecting \(H_0\) even though it&rsquo;s true, a.k.a. a &ldquo;false positive&rdquo;.</li>
-                <li><strong>Power Level</strong> \(\beta\) - probability of rejecting \(H_0\) when it&rsquo;s false.</li>
+                <li><strong>Significance Level</strong> \(\alpha\) - probability of rejecting \(H_0\) even though it&rsquo;s
+                    true, a.k.a. a &ldquo;false positive&rdquo;.
+                </li>
+                <li><strong>Power Level</strong> \(\beta\) - probability of rejecting \(H_0\) when it&rsquo;s false.
+                </li>
                 <li class="fragment">Ideally we want to conduct a test with a low significance and a high power</li>
-                <li class="fragment">&ldquo;Statistically significant&rdquo; rarely means what people think it means. Inconceivable!</li>
+                <li class="fragment">&ldquo;Statistically significant&rdquo; rarely means what people think it means.
+                    Inconceivable!
+                </li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
@@ -1192,8 +1249,12 @@
                 data-transition="fade-in">
             <h2>One Tail or Two Tails?</h2>
             <ul>
-                <li>Don't assume the new version will either have no difference or outperform the current version (one-tail). It might be worse.</li>
-                <li>A two-tail test means the critical value is split in half. The probability of not rejecting \(H_0\) is halved if \(H_A\) is better.</li>
+                <li>Don't assume the new variant will either have no difference or outperform the current variant
+                    (one-tail). It might be worse.
+                </li>
+                <li>A two-tail test means the critical value is split in half. The probability of not rejecting \(H_0\)
+                    is halved if \(H_A\) is better.
+                </li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
@@ -1206,8 +1267,10 @@
 
             <ul class="fragment">
                 <li>The p-value is the result of the test</li>
-                <li>If it is less than the significance level \(\alpha\) then it&rsquo;s the probablity of seeing your result if the null hypothesis \(H_0\) were true.</li>
-                <li>If so, we can reject  \(H_0\)</li>
+                <li>If it is less than the significance level \(\alpha\) then it&rsquo;s the probablity of seeing your
+                    result if the null hypothesis \(H_0\) were true.
+                </li>
+                <li>If so, we can reject \(H_0\)</li>
             </ul>
             <div class="slide-footer-left">
                 <p class="footer-text">2. Frequentist Statistics</p>
@@ -1221,7 +1284,8 @@
             <h2>Testing a population Proportion</h2>
             <ul>
                 <li>Historically, 12% of participants will upload a profile pic</li>
-                <li>We&rsquo;ve updated the UI. From a sample of 214 new participants, 30 uploaded a profile picture</li>
+                <li>We&rsquo;ve updated the UI. From a sample of 214 new participants, 30 uploaded a profile picture
+                </li>
                 <li class="fragment">With \(\alpha = 0.05\), can we reject \(H_0\)? (\(z_{\alpha=0.05} = 1.645\))
                     <span class="fragment">\({Z = \frac{ \overline{x} -  \mu_{0}}{  \sigma/\sqrt{n} } = \frac{ \frac{k}{n} -  \mu_{0}}{  \sqrt{\frac{p(1-p)}{n}} } = \frac{ \frac{30}{214} - 0.12}{  \sqrt{\frac{0.12(1 - 0.12)}{214}} } = 0.909}\)</span>
                 </li>
@@ -1235,7 +1299,9 @@
                 data-transition="fade-in">
             <h2>Testing a population mean</h2>
             <ul>
-                <li>A manufacturer claims its thermostats last more than 10,000 days. In a sample of 30, the \(\mu\) time before everyone froze was 9,900 days with \(\sigma = 120\).</li>
+                <li>A manufacturer claims its thermostats last more than 10,000 days. In a sample of 30, the \(\mu\)
+                    time before everyone froze was 9,900 days with \(\sigma = 120\).
+                </li>
                 <li class="fragment">With \(\alpha = 0.05\), can we reject \(H_0\)? (\(z_{\alpha=0.05} = -1.645\))
                     <span class="fragment">$${Z = \frac{ \overline{x} -  \mu_{0}}{  \sigma/\sqrt{n} } = \frac{ 9900 -10000}{  120 \sqrt{30}  } = -4.456}$$</span>
                 </li>
@@ -1248,7 +1314,8 @@
         <section
                 data-transition="fade-in">
             <h2>Sampling Size</h2>
-            <p><em>How big does a sample size need to be before you can trust the data not to be <span style="text-decoration: line-through">total garbage</span> just noise?</em></p>
+            <p><em>How big does a sample size need to be before you can trust the data not to be <span
+                    style="text-decoration: line-through">total garbage</span> just noise?</em></p>
             <ul class="fragment">
                 <li>More variance = More data required.</li>
                 <li>Things with unknown variance (e.g., purchase $ amount) require t-test.</li>
@@ -1263,7 +1330,8 @@
         <section
                 data-transition="fade-in">
             <h2>Sample Size For Proportions</h2>
-            <p><em>How much data do I need to collect in order to<br />measure an \(x\%\) change in conversion rate?</em></p>
+            <p><em>How much data do I need to collect in order to<br/>measure an \(x\%\) change in conversion rate?</em>
+            </p>
             <span>$$n = (Z_{\alpha/2}+Z_{1-\beta})^{2} \cdot \frac{p_1(1-p_1)+p_2(1-p_2) }{(p_1-p_2)^2}$$</span>
         </section>
         <section
@@ -1271,7 +1339,7 @@
             <h2>Measuring Uplift</h2>
             <ul>
                 <li>The feature currently has a 10% conversion rate</li>
-                <li>Detect at least a 25% uplift, with \(\alpha = 0.05\) and  \(\beta = 0.80\)
+                <li>Detect at least a 25% uplift, with \(\alpha = 0.05\) and \(\beta = 0.80\)
                     <span class="math-formula fragment">$$p_{H_0} = 0.1, p_{H_A} = 1.25p_{H_0} = 0.125$$</span>
                     <span class="math-formula fragment">$${n = (1.960 + 0.842)^2 \cdot \frac{0.199}{-0.025^2} \approx 2504}$$</span>
                 </li>
@@ -1283,7 +1351,7 @@
             <h2>Peeking</h2>
             <p><em>In Frequentist testing, always determine the sample size beforehand.</em></p>
             <ul>
-                <li>Never check progress even if one version looks to be outperforming the other!!!</li>
+                <li>Never check progress even if one variant looks to be outperforming the other!!!</li>
                 <li>You want garbage? This is how you get Type I errors.</li>
             </ul>
 
@@ -1325,8 +1393,11 @@
             <aside class="notes" data-markdown>
                 * Maybe after 2000 observations there's some regression
                 * This is major problem with so many A/B testing services. They allow you to track progress.
-                * They kinda have to. It's what the client wants. They can't just say, okay run your test, check back in a few weeks.
-                * That is the dilemma. I'm sure all those A/B testing services have Ph.D statisticians working for them, and they are all probably saying over to the marketing team: STOP PEEKING, but the marketing team can't just sell a mystery black box to clients.
+                * They kinda have to. It's what the client wants. They can't just say, okay run your test, check back in
+                a few weeks.
+                * That is the dilemma. I'm sure all those A/B testing services have Ph.D statisticians working for them,
+                and they are all probably saying over to the marketing team: STOP PEEKING, but the marketing team can't
+                just sell a mystery black box to clients.
             </aside>
         </section>
         <section
@@ -1340,18 +1411,24 @@
             </div>
             <aside class="notes" data-markdown>
                 * Okay this is the season finale of Frequentist testing.
-                * It's finally the formula you can plug all the numbers into, and not have to worry where the formula came from
+                * It's finally the formula you can plug all the numbers into, and not have to worry where the formula
+                came from
             </aside>
         </section>
         <section
                 data-transition="fade-in">
             <h2>Raw Fish</h2>
             <ul>
-                <li>Of the 50 times I've placed an order for Sakedon under my name &ldquo;Jimmy,&rdquo; I&rsquo;ve gotten extra salmon 23 times.</li>
-                <li>Of the 70 times using the alias, &ldquo;Hot Carlos,&rdquo; I&rsquo;ve gotten extra salmon 43 times.</li>
+                <li>Of the 50 times I've placed an order for Sakedon under my name &ldquo;Jimmy,&rdquo; I&rsquo;ve
+                    gotten extra salmon 23 times.
+                </li>
+                <li>Of the 70 times using the alias, &ldquo;Hot Carlos,&rdquo; I&rsquo;ve gotten extra salmon 43
+                    times.
+                </li>
                 <li><strong>Should I continue to let them think I'm Jimmy?</strong></li>
                 <li class="fragment">Test Statistic
-                    <span style="font-size: 0.85em;">\(X = \widehat{p}_1-\widehat{p}_2 = \frac{23}{50}-\frac{43}{70} \approx -0.1543\)</span></li>
+                    <span style="font-size: 0.85em;">\(X = \widehat{p}_1-\widehat{p}_2 = \frac{23}{50}-\frac{43}{70} \approx -0.1543\)</span>
+                </li>
                 <li class="fragment">Z-score
                     <span style="font-size: 0.85em;">\(Z = \frac{-0.1543}{0.0921} \approx -1.6749\)</span></li>
                 <li class="fragment"> \(p\)-value: \(P(Z < -1.6749) \approx 0.0470\) or 4.7%</li>
@@ -1397,7 +1474,8 @@
                 <p class="footer-text">3. Bayesian Statistics</p>
             </div>
             <aside class="notes" data-markdown>
-                * Perhaps that was why it was mostly ignored during much of the 20th century. Computers just weren't good enough.
+                * Perhaps that was why it was mostly ignored during much of the 20th century. Computers just weren't
+                good enough.
             </aside>
         </section>
         <section
@@ -1405,11 +1483,16 @@
                 data-background-image="custom/media/explosions.jpg"
                 data-transition="fade-in">
             <h2 class="shadow-text" style="text-transform: uppercase;">Michael Bay</h2><br/>
-            <img src="custom/media/michael-bay.jpg" style="height: 45vh" /><br />
+            <img src="custom/media/michael-bay.jpg" style="height: 45vh"/><br/>
             <p class="shadow-text"><em>Statistics just got real.</em></p>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
             </div>
+            <aside class="notes" data-markdown>
+                * R.A. Fisher is the father of Frequentist Statistics, Michael Bay is the father of Bayesian statistics
+                * Michael Bay published "An Essay towards solving a a problem in the doctrine of chances," which created
+                the foundations for conditional probability.
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
@@ -1427,20 +1510,27 @@
         <section
                 data-transition="fade-in">
             <h2>Bayes&rsquo; Theorem Again!</h2>
-            <div class="math-formula">$$P(\mathcal{H}|\mathcal{D}) = \frac{P(\mathcal{D}|\mathcal{H})P(\mathcal{H})}{P(\mathcal{D})}$$</div>
+            <div class="math-formula">$$P(\mathcal{H}|\mathcal{D}) =
+                \frac{P(\mathcal{D}|\mathcal{H})P(\mathcal{H})}{P(\mathcal{D})}$$
+            </div>
             <div class="">$$P(Hypothesis|Data) = \frac{P(Data|Hypothesis)P(Hypothesis)}{P(Data)}$$</div>
             <div class="math-formula fragment">$$Posterior = \frac{Likelihood \times Prior}{Evidence}$$</div>
         </section>
         <section
                 data-transition="fade-in">
             <h2>Wingardium Leviosa</h2>
-            <p><em>1 out of every 10,000 people have magical midichlorians. Hogwarts can identify magical children with 99.5% accuracy. An owl just gave you an acceptance letter.</em><br />
+            <p><em>1 out of every 10,000 people have magical midichlorians. Hogwarts can identify magical children with
+                99.5% accuracy. An owl just gave you an acceptance letter.</em><br/>
                 <span class="fragment"><em><strong>Question: are you magical?</strong></em></span></p>
             <ul class="fragment">
-                <li>Likelihood: <span style="font-size: 0.85em;">\(P(\mathcal{D}|\mathcal{H}) = 0.995\)</span> | Prior: <span style="font-size: 0.85em;">\(P(\mathcal{H}) = 0.0001\)</span></li>
-                <li>Evidence: <span style="font-size: 0.85em;">\({P(\mathcal{D}) = 0.995 \cdot 0.0001 + 0.005 \cdot 0.9999 = 0.005099}\)</span></li>
+                <li>Likelihood: <span style="font-size: 0.85em;">\(P(\mathcal{D}|\mathcal{H}) = 0.995\)</span> | Prior:
+                    <span style="font-size: 0.85em;">\(P(\mathcal{H}) = 0.0001\)</span></li>
+                <li>Evidence: <span style="font-size: 0.85em;">\({P(\mathcal{D}) = 0.995 \cdot 0.0001 + 0.005 \cdot 0.9999 = 0.005099}\)</span>
+                </li>
             </ul>
-            <div class="math-formula fragment">$$P(\mathcal{H}|\mathcal{D}) = \frac{0.995\times0.0001}{0.005099} = 1.95\%$$</div>
+            <div class="math-formula fragment">$$P(\mathcal{H}|\mathcal{D}) = \frac{0.995\times0.0001}{0.005099} =
+                1.95\%$$
+            </div>
 
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
@@ -1448,12 +1538,16 @@
             <aside class="notes">
                 <ul>
                     <li>In other words, the probability of having magical abilities is 0.0001</li>
-                    <li>What is the probability that a person is magical, given that they test positive for magic ability?</li>
+                    <li>What is the probability that a person is magical, given that they test positive for magic
+                        ability?
+                    </li>
                     <li>Hypothesis: H = person has magical potential</li>
                     <li>Data: D = the Hogwarts test is positive</li>
                     <li>Prior - probability of a positive test if you are magical</li>
                     <li>Likelihood - probability of having magical midichlorians</li>
-                    <li>Evidence - a true positive test for those who are magical, and a false positive for those who are just plain muggles</li>
+                    <li>Evidence - a true positive test for those who are magical, and a false positive for those who
+                        are just plain muggles
+                    </li>
                 </ul>
             </aside>
         </section>
@@ -1464,43 +1558,43 @@
 
                 <table>
                     <thead style="font-size: 85%">
-                        <tr>
-                            <th>Hypothesis</th>
-                            <th>Prior</th>
-                            <th>Likelihood</th>
-                            <th>Numerator</th>
-                            <th>Posterior</th>
-                        </tr>
+                    <tr>
+                        <th>Hypothesis</th>
+                        <th>Prior</th>
+                        <th>Likelihood</th>
+                        <th>Numerator</th>
+                        <th>Posterior</th>
+                    </tr>
                     </thead>
                     <tbody style="font-size: 85%">
-                        <tr>
-                            <td>\(\theta\)</td>
-                            <td>\(p(\theta)\)</td>
-                            <td>\(p(x=1|\theta)\)</td>
-                            <td>\(p(\theta)p(x=1|\theta)\)</td>
-                            <td>\(p(\theta|x=1)\)</td>
-                        </tr>
-                        <tr>
-                            <td>\(Magic\)</td>
-                            <td>\(0.0001\)</td>
-                            <td>\(0.995\)</td>
-                            <td>\(0.00010\)</td>
-                            <td>\(0.01951\)</td>
-                        </tr>
-                        <tr>
-                            <td>\(Muggle\)</td>
-                            <td>\(0.9999\)</td>
-                            <td>\(0.005\)</td>
-                            <td>\(0.00500\)</td>
-                            <td>\(0.98049\)</td>
-                        </tr>
-                        <tr>
-                            <td>\(total\)</td>
-                            <td></td>
-                            <td>\(1\)</td>
-                            <td>\(0.00510\)</td>
-                            <td>\(1\)</td>
-                        </tr>
+                    <tr>
+                        <td>\(\theta\)</td>
+                        <td>\(p(\theta)\)</td>
+                        <td>\(p(x=1|\theta)\)</td>
+                        <td>\(p(\theta)p(x=1|\theta)\)</td>
+                        <td>\(p(\theta|x=1)\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(Magic\)</td>
+                        <td>\(0.0001\)</td>
+                        <td>\(0.995\)</td>
+                        <td>\(0.00010\)</td>
+                        <td>\(0.01951\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(Muggle\)</td>
+                        <td>\(0.9999\)</td>
+                        <td>\(0.005\)</td>
+                        <td>\(0.00500\)</td>
+                        <td>\(0.98049\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(total\)</td>
+                        <td></td>
+                        <td>\(1\)</td>
+                        <td>\(0.00510\)</td>
+                        <td>\(1\)</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -1508,7 +1602,8 @@
                 <p class="footer-text">3. Bayesian Statistics</p>
             </div>
             <aside class="notes" data-markdown>
-                * This table is also saying there's a 98% chance you're a boring Muggle even if you receive a Hogwarts letter.
+                * This table is also saying there's a 98% chance you're a boring Muggle even if you receive a Hogwarts
+                letter.
             </aside>
         </section>
         <section
@@ -1516,15 +1611,19 @@
             <div data-markdown>
                 ## Base Rate Fallacy
 
-                The probability that a person - who receives a Hogwarts acceptance letter - and actually has magical potential is surprisingly low, despite the test being 99.5% accurate.
+                The probability that a person - who receives a Hogwarts acceptance letter - and actually has magical
+                potential is surprisingly low, despite the test being 99.5% accurate.
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
             </div>
             <aside class="notes">
                 <ul>
-                    <li>Suppose the population was in fact ten thousand people. Then the expected number of people who actually have magical potential is 1. </li>
-                    <li>Of the remaining 9,999 people, 0.5% of them will test positive. which will be 50 other people.</li>
+                    <li>Suppose the population was in fact ten thousand people. Then the expected number of people who
+                        actually have magical potential is 1.
+                    </li>
+                    <li>Of the remaining 9,999 people, 0.5% of them will test positive. which will be 50 other people.
+                    </li>
                     <li>Okay who can tell me what can be done that might raise our chances?</li>
                 </ul>
             </aside>
@@ -1580,7 +1679,9 @@
             <aside class="notes">
                 <ul>
                     <li>Run the test again!</li>
-                    <li>Remember in Bayesian statistics, probability is subjective, and you can change what you know as more information comes in.</li>
+                    <li>Remember in Bayesian statistics, probability is subjective, and you can change what you know as
+                        more information comes in.
+                    </li>
                 </ul>
             </aside>
         </section>
@@ -1592,7 +1693,7 @@
                 <span class="math-formula">$$p(\theta|x) = \frac{p(x|\theta)p(\theta)}{p(x)}$$</span>
 
                 <div class="fragment">
-                    <p><em>Solving discrete pmf requires sums;<br />solving continuous pdf requires integrals</em></p>
+                    <p><em>Solving discrete pmf requires sums;<br/>solving continuous pdf requires integrals</em></p>
                     <span class="math-formula">$${f(\theta|x)d\theta = \frac{p(x|\theta)f(\theta)d\theta}{\int_a^b p(x|\theta)f(\theta)d\theta}}$$</span>
                 </div>
 
@@ -1613,9 +1714,14 @@
                 <p><em>Sometimes we don't know the prior distribution.</em></p>
 
                 <ul class="fragment">
-                    <li>Unlike Frequentist Statistics, Michael Bay fans want to model the uncertainty about the probability of events</li>
-                    <li>If we know nothing, we assume a uniform distribution of prior knowledge \(f(\theta)d\theta = 1d\theta\)</li>
-                    <li>Example: we have a mystery coin. The probability \(\theta\) of landing heads can be anything.</li>
+                    <li>Unlike Frequentist Statistics, Michael Bay fans want to model the uncertainty about the
+                        probability of events
+                    </li>
+                    <li>If we know nothing, we assume a uniform distribution of prior knowledge \(f(\theta)d\theta =
+                        1d\theta\)
+                    </li>
+                    <li>Example: we have a mystery coin. The probability \(\theta\) of landing heads can be anything.
+                    </li>
                 </ul>
 
             </div>
@@ -1631,10 +1737,10 @@
             <div>
                 <h2>Coin flips with calculus</h2>
                 <ul>
-                    <li>If the probability of heads can be anything, what is the probability it lands heads?<br />
-                        <span>\({P(\theta>.5)=\int_{.5}^1 f(\theta)d(\theta) = \int_{.5}^1 1 \cdot d(\theta) = \theta \Big|_0^1= \frac{1}{2}}\)</span>
+                    <li>If the probability of heads can be anything, what is the probability it lands heads?<br/>
+                        <span>\({P(\theta>.5)=\int_{.5}^1 f(\theta)d(\theta) = \int_{.5}^1 1 \cdot d(\theta) = \theta \Big|_{.5}^1= \frac{1}{2}}\)</span>
                     </li>
-                    <li class="fragment">If it lands heads, what is the probability it favors heads?<br />
+                    <li class="fragment">If it lands heads, what is the probability it favors heads?<br/>
                         <span style="font-size: 0.9em;">\({P(\theta>.5|x=1)=\int_{.5}^1 f(\theta|x=1)d(\theta) = \int_{.5}^1 2\theta d\theta = \theta^2 \Big|_{.5}^1= \frac{3}{4}}\)</span>
                     </li>
                     <li class="fragment">Surely, there&rsquo;s a better way to do this.</li>
@@ -1674,7 +1780,8 @@
                     </tr>
                 </table>
 
-                <p class="fragment">We don't know what \(c_2\) is, but we know it&rsquo;s obtained from doing an integral of a binomial function</p>
+                <p class="fragment">We don't know what \(c_2\) is, but we know it&rsquo;s obtained from doing an
+                    integral of a binomial function</p>
 
             </div>
             <div class="slide-footer-left">
@@ -1690,9 +1797,13 @@
                 <h2>Insert Baseball Analogy</h2>
 
                 <ul>
-                    <li>A player&rsquo;s batting average is the proportion of hits to total number of plate appearances.</li>
+                    <li>A player&rsquo;s batting average is the proportion of hits to total number of plate
+                        appearances.
+                    </li>
                     <li>At the beginning a season the batting average is meaningless if you ignore prior knowledge</li>
-                    <li>What we want is a way of updating a player&rsquo;s batting average over time while not fluctuated wildly</li>
+                    <li>What we want is a way of updating a player&rsquo;s batting average over time while not
+                        fluctuated wildly
+                    </li>
                 </ul>
 
             </div>
@@ -1712,7 +1823,9 @@
                 <p><em>\(beta(\alpha,\beta)\) 2-parameter distribution with range \([0,1]\)</em></p>
                 <span class="math formula">$${f(\theta) = c\theta^{\alpha-1}(1-\theta)^{\beta-1} = \frac{(\alpha+\beta-1)!}{(\alpha-1)!(\beta-1)!}\theta^{\alpha-1}(1-\theta)^{\beta-1}}$$</span>
                 <ul class="fragment">
-                    <li>\(\alpha\) and \(\beta\) are called <strong>hyperparameters</strong>, they are different than the hypothesis parameter \(\theta\)</li>
+                    <li>\(\alpha\) and \(\beta\) are called <strong>hyperparameters</strong>, they are different than
+                        the hypothesis parameter \(\theta\)
+                    </li>
                     <li>That fraction part \(c\) is called a normalizing constant.</li>
                 </ul>
             </div>
@@ -1722,14 +1835,17 @@
             <aside class="notes" data-markdown>
                 * Suppose last season a player had 80 hits and 220 outs for a total of 300 at-bats
                 * The batting average of this player is a beta distribution \\(beta(80,220)\\)
-                * the pdf for a beta distribution should look familiar. Think of it as a meta-binomial distribution. It is distribution for the probabilities for a binomial distribution, which is itself a distribution for a bunch of bernoulli trials
+                * the pdf for a beta distribution should look familiar. Think of it as a meta-binomial distribution. It
+                is distribution for the probabilities for a binomial distribution, which is itself a distribution for a
+                bunch of bernoulli trials
             </aside>
         </section>
         <section
                 data-transition="fade-in">
             <div>
                 <h2>Conjugate Priors</h2>
-                <p><em>If the posterior is the same probability distribution family as the the prior, then they are conjugate distributions</em></p>
+                <p><em>If the posterior is the same probability distribution family as the the prior, then they are
+                    conjugate distributions</em></p>
             </div>
             <div class="slide-footer-left">
                 <p class="footer-text">3. Bayesian Statistics</p>
@@ -1749,9 +1865,12 @@
             <div>
                 <h2>Monte Carlo Simulations</h2>
                 <ul>
-                    <li>Use repeated random numbers to solve math problems where the analytical solution isn&rsquo;t known, or intractable.</li>
+                    <li>Use repeated random numbers to solve math problems where the analytical solution isn&rsquo;t
+                        known, or intractable.
+                    </li>
                     <li class="fragment">Often used to solve stupid integrals</li>
-                    <li class="fragment">In other words, we can solve very complicated Bayesian posteriors with code!</li>
+                    <li class="fragment">In other words, we can solve very complicated Bayesian posteriors with code!
+                    </li>
                     <li class="fragment">Have to be careful because they can get computationally intensive</li>
                 </ul>
             </div>
@@ -1764,24 +1883,24 @@
             <div>
                 <h2>Monte Carlo A/B</h2>
                 <pre class="fat-code"><code data-trim data-noescape>
-from __future__ import division
-from scipy.stats import beta
-import numpy as np
+                    from __future__ import division
+                    from scipy.stats import beta
+                    import numpy as np
 
-sims = 100000 # number of simulations
-p_alpha, p_n = 40, 200 # prior
-p_beta = p_n - p_alpha
-c_alpha, c_n = 35, 200 # control
-c_beta = c_n - c_alpha
-t_alpha, t_n = 54, 200 #treatment
-t_beta = t_n - t_alpha
+                    sims = 100000 # number of simulations
+                    p_alpha, p_n = 40, 200 # prior
+                    p_beta = p_n - p_alpha
+                    c_alpha, c_n = 35, 200 # control
+                    c_beta = c_n - c_alpha
+                    t_alpha, t_n = 54, 200 #treatment
+                    t_beta = t_n - t_alpha
 
-control = np.array(beta.rvs(p_alpha + c_alpha, p_beta + c_beta, size=sims))
-treatment = np.array(beta.rvs(p_alpha + t_alpha, p_beta + t_beta, size=sims))
+                    control = np.array(beta.rvs(p_alpha + c_alpha, p_beta + c_beta, size=sims))
+                    treatment = np.array(beta.rvs(p_alpha + t_alpha, p_beta + t_beta, size=sims))
 
-mc_treatment_wins = sum((treatment - control) > 0)
-treatment_better_prob = mc_treatment_wins/simulations
-print(treatment_better_prob)
+                    mc_treatment_wins = sum((treatment - control) > 0)
+                    treatment_better_prob = mc_treatment_wins/simulations
+                    print(treatment_better_prob)
                 </code></pre>
             </div>
             <div class="slide-footer-left">
@@ -1789,47 +1908,170 @@ print(treatment_better_prob)
             </div>
         </section>
         <section
+                data-background-video="custom/media/baby-penguins.webm"
+                data-background-video-loop="true"
+                data-transition="fade-in">
+        </section>
+        <section
                 data-transition="fade-in">
             <div>
-                <h1><span style="text-decoration: line-through;">3. Multivariate Testing</span></h1>
+                <h1><span style="text-decoration: line-through;">4. Multivariate Testing</span></h1>
                 <p><em>Sorry, this a whole talk onto itself.</em></p>
 
                 <ul>
+                    <li>Full vs. Fractional Factorial</li>
                     <li>Chi-Squared Tests</li>
                     <li>Analysis of Covariance</li>
                     <li>Multilevel Modeling</li>
-                    <li>Markov Chain Monte Carlo</li>
+                    <li>Markov Chain Monte Carlo (MCMC)</li>
                 </ul>
-            </div>
-            <div class="slide-footer-left">
-                <p class="footer-text">4. Multivariate Testing</p>
             </div>
         </section>
         <section
                 data-transition="fade-in">
             <div>
-                <h1>4. Implement- ation</h1>
+                <h1>5. Implement- ation</h1>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Can we pay someone else?</h2>
+                <p><em>There are two major companies....</em></p>
+                <ol>
+                    <li><strong>Optimizely</strong> - Sequential Probability Ratio (Frequentist)</li>
+                    <li><strong>VWO</strong> - Monte Carlo Simulations (Bayesian)</li>
+                </ol>
+                <div class="fragment">
+                    <p><em>... and there&rsquo;s everyone else</em></p>
+                    <ul>
+                        <li><strong>Google Experiments</strong> - ties in with Google Analytics</li>
+                        <li><strong>Adobe Target</strong> - ties in with Adobe Analytics, what?</li>
+                        <li><strong>Qubit</strong> - strong focus on segmentation (Frequentist)</li>
+                    </ul>
+                </div>
             </div>
             <div class="slide-footer-left">
-                <p class="footer-text">4. Implementation</p>
+                <p class="footer-text">5. Implementation</p>
             </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Do 3rd-party services just lie?</h2>
+                <p><em>With the exception of the companies mentioned, everything else looks like quackery.</em></p>
+
+                <ul>
+                    <li>There's a disconnect between what statistics can do, and what customers expect to happen.</li>
+                    <li>They also expect that every customer is just looking to increase <strong
+                            style="font-family: didot;">CASH MONEY $$$ ROI SYNERGY BLOCKCHAIN</strong>, so they cater to
+                        that.
+                    </li>
+                </ul>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">5. Implementation</p>
+            </div>
+            <aside class="notes" data-markdown>
+                * I didn't mention a lot of other companies, like "Convert Experiences," "AB Tasty," "Sentient Ascend,"
+                "SiteSpeck," "Conversion sciences," but if you go to those websites, it's trash.
+                * A guy named Peter Borden tried to get smart with Optimizely. He conducted an A/A test (both variants
+                were the same) and optimizely told him that Variant A was 100% guarenteed to be 18% better than Variant
+                A
+            </aside>
         </section>
         <section
                 data-transition="fade-in">
             <div>
                 <h2>R vs. Python</h2>
+
+                <table style="font-size: 0.75em;">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th style="text-align: center;vertical-align: middle;"><img src="custom/media/r-logo.png" class="no-style"
+                                                             style="height: 2em;"/></th>
+                        <th style="text-align: center;vertical-align: middle;"><img src="custom/media/python-logo.png" class="no-style"
+                                                             style="height: 2em;"/></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Specifically for statistics</td>
+                        <td>General whatever</td>
+                    </tr>
+                    <tr>
+                        <td>Good for</td>
+                        <td>Ad-hoc analysis</td>
+                        <td>Repeated Tasks</td>
+                    </tr>
+                    <tr>
+                        <td>Learning</td>
+                        <td>Steep curve</td>
+                        <td><code>import scipy</code></td>
+                    </tr>
+                    <tr>
+                        <td>Usage</td>
+                        <td>Standalone computing</td>
+                        <td>Integrate into apps</td>
+                    </tr>
+                    <tr>
+                        <td>Tasks</td>
+                        <td>A few lines</td>
+                        <td>OOP fun</td>
+                    </tr>
+                    <tr>
+                        <td>Packages</td>
+                        <td>CRAN</td>
+                        <td>PyPi</td>
+                    </tr>
+                    <tr>
+                        <td>Commonalities</td>
+                        <td colspan="2">Interpreted Language, StackOverflow support</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="slide-footer-left">
-                <p class="footer-text">4. Implementation</p>
+                <p class="footer-text">5. Implementation</p>
             </div>
         </section>
         <section
                 data-transition="fade-in">
             <div>
                 <h2>Allocation</h2>
+                <p><em>Which users see what?</em></p>
             </div>
             <div class="slide-footer-left">
-                <p class="footer-text">4. Implementation</p>
+                <p class="footer-text">5. Implementation</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>A Typical Workflow</h2>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">5. Implementation</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>The front end</h2>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">5. Implementation</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Rules Engine</h2>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">5. Implementation</p>
             </div>
         </section>
         <section
@@ -1837,16 +2079,103 @@ print(treatment_better_prob)
             <div>
                 <h1>5.Faults in A/B Tests</h1>
             </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>An A/B Test doesn't tell us everyhing</h2>
+                <p><em>We can determine which variant is better, but not why.</em></p>
+
+                <ul>
+                    <li class="fragment">Letting A/B tests dictate the UI might lead to an incoherent design</li>
+                    <li class="fragment">We really don't know what is worth testing, so we will waste time trying everything everywhere.</li>
+                </ul>
+            </div>
             <div class="slide-footer-left">
-                <p class="footer-text">5. Faults in A/B Tests</p>
+                <p class="footer-text">6. Faults in A/B Tests</p>
             </div>
         </section>
         <section
-                data-transition="fade-in"
-                data-background-image="custom/media/xkcd-882.png"
-                data-background-repeat="no-repeat"
-                data-background-size="contain"
-                style="margin: 10rem">
+                data-transition="fade-in">
+            <div>
+                <h2>What can throw off a test?</h2>
+
+                <ul>
+                    <li><strong>Short vs. long term</strong> - <em>(latent conversion)</em> there may be a lag between
+                        the time a user is exposed to something and when they take action.
+                    </li>
+                    <li><strong>Familiarity</strong> - users may be less efficient at doing something until they learn
+                        how to do it.
+                    </li>
+                    <li><strong>Novelty</strong> - users may want to click on everything if they see something new,
+                        instead of using it for its purpose.
+                    </li>
+                    <li><strong>Seasonal effects</strong> - e.g., our app usage fin the summer.
+                    </li>
+                </ul>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">6. Faults in A/B Tests</p>
+            </div>
+            <aside class="notes" data-markdown>
+                * Example: you have a IRA service and you change the feature for grabbing tax-related documents. Nobody
+                is gonna use it until tax season.
+                * Example: introducing a new navigation
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>We might be responsible for messing it up</h2>
+
+                <ul>
+                    <li><strong>Chatter</strong> - users might find out others experience something different.</li>
+                    <li><strong>Bugs</strong> - can different variants can work simultaneously?</li>
+                    <li><strong>Hawthorne Effect</strong> - users may alter their behavior if they know they&rsquo;re being studied.</li>
+                    <li><strong>Consistency</strong> - make sure users see the same variant for the duration of the test.</li>
+                </ul>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">6. Faults in A/B Tests</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div class="full-page-background"
+                 style="background-image: url('custom/media/xkcd-882.png');height: 680px;"></div>
+            <aside class="notes" data-markdown>
+                * The joke is they are running 20 tests with a p-value of 0.05. So that means they are likely to get 1 false positive.
+            </aside>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Pre- &amp; post-test segmentation</h2>
+
+                <p><em>Stratified sampling before/after the test for more insight</em></p>
+
+                <ul>
+                    <li><strong>Before testing</strong>: split users by strata to ensure proportionate representation</li>
+                    <li><strong>After testing</strong>: measure which sub-population had the best conversion for each variant
+                        <ul>
+                            <li>Get ready for more Type I errors</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">6. Faults in A/B Tests</p>
+            </div>
+        </section>
+        <section
+                data-transition="fade-in">
+            <div>
+                <h2>Regression to the mean</h2>
+            </div>
+            <div class="slide-footer-left">
+                <p class="footer-text">6. Faults in A/B Tests</p>
+            </div>
         </section>
     </div>
 </div>

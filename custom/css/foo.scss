@@ -83,4 +83,17 @@
             }
         }
     }
+
+    img.no-style {
+        border-width: 0;
+        text-shadow: none;
+        box-shadow: none;
+        margin: 0;
+    }
+
+    .full-page-background {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
